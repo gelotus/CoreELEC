@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.beetle-pce-fast"
-PKG_VERSION="2e0e463"
-PKG_SHA256="f3f5d4c913c04ec90216278547cabaebb608264a6d5f9e8126f27e6d6e3483a4"
+PKG_VERSION="361ca8e"
+PKG_SHA256="3190a513c92e8c45d8c4799989147537d08a4695624658656c70f6be61d0a367"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

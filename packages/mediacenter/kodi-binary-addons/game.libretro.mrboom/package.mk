@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.mrboom"
-PKG_VERSION="076c7ab"
-PKG_SHA256="5ddcc6f131177d4413ced1f1786ee231738241569f36398ebedec3775b4150a5"
+PKG_VERSION="d2a1aa9"
+PKG_SHA256="97ae8dd01b18d84598a683d58a16b44e17648e86b0cead20113a08e894c679cd"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

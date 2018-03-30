@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.beetle-psx"
-PKG_VERSION="8327779"
-PKG_SHA256="c54c10cb23ac5541e18fd45ac38ae5088989052b402c934d7ddef041f9e0eeb2"
+PKG_VERSION="053d35b"
+PKG_SHA256="019d683aef590634a8540efba045659c629776fb793d420d31e47304ace0699a"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.handy"
-PKG_VERSION="fa3a8de"
-PKG_SHA256="6fd8be22395033f051860e1fbf0e44b830c071296c781cc2ca45152fcebaf877"
+PKG_VERSION="621ed81"
+PKG_SHA256="114112f422064db9889a52ef137612ffe9e7e8a2e3a89a5331802342969fe6e6"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

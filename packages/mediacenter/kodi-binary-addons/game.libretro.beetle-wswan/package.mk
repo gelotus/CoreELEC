@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.beetle-wswan"
-PKG_VERSION="f21ef1d"
-PKG_SHA256="46bf4e6388d844d28a6c7a72908acdfa47bf41a35b3ff2ce2efdf94c9ec13e07"
+PKG_VERSION="a621576"
+PKG_SHA256="f5bb31d675a054fd4cef5ff4fee5e12fe43fe6f1dcd552134da3e0dc40e10aea"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

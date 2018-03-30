@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="kodi"
-PKG_VERSION="258cf89"
-PKG_SHA256="a481ce82321af928652caa982f82b09435ace1aa958b0af98a3d73f0198af880"
+PKG_VERSION="5141e05"
+PKG_SHA256="fe5328039deeb66763dcc10cd9680d03d4d56ed6f28f7c0d797ec8db7647056c"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
@@ -336,7 +336,7 @@ post_makeinstall_target() {
 
   if [ "$DRIVER_ADDONS_SUPPORT" = "yes" ]; then
     xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "script.program.driverselect" $ADDON_MANIFEST
-  fi 
+  fi
 
   if [ "$DEVICE" = "Slice" -o "$DEVICE" = "Slice3" ]; then
     xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "service.slice" $ADDON_MANIFEST

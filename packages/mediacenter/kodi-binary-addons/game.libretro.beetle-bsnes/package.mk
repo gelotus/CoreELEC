@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.beetle-bsnes"
-PKG_VERSION="2f03b47"
-PKG_SHA256="9d973e38ba41902e1cd17cf914fca8a700ca75383cf3de2471f91cb10dbbd150"
+PKG_VERSION="7c525ef"
+PKG_SHA256="0f1b6ec04ef5463230f08562eba03ad1c6cc2935af83532600d1a461a1101f19"
 PKG_REV="104"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.o2em"
-PKG_VERSION="e0c4381"
-PKG_SHA256="5b561956691e99e2629014d54b3ba531f1c43f19b63a66f91381a5e0e50762b2"
+PKG_VERSION="98170af"
+PKG_SHA256="23a8457ec91315394e182454762f5fae386cae41f98500df6f306e7543671b7f"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

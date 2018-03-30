@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.genplus"
-PKG_VERSION="697c45b"
-PKG_SHA256="fa5a26f55e61f8cb3ad817978fb599c129eccd7aedce25ef497dfd50e804e372"
+PKG_VERSION="c75cb9e"
+PKG_SHA256="13c445cbf37bd07ee7e95277c391654f55ebea242eae06a8f9602c44c89b8d51"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

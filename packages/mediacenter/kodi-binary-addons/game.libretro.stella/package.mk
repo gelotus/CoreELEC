@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.stella"
-PKG_VERSION="d053a35"
-PKG_SHA256="f34aa753458826b7a0ce0d16a8750eed78630c1325c55f0c6266cdc96c837412"
+PKG_VERSION="7809477"
+PKG_SHA256="92c1f0d479b0ec74b79259856d35c4615c0df9e5303155e3ebc012d8be220a42"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

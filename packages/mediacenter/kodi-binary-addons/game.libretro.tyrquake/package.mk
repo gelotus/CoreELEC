@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.tyrquake"
-PKG_VERSION="bbc3ec8"
-PKG_SHA256="3dd01954f84410bc86c414518466b0876a124fed1ef8581020bca4a8d1a92947"
+PKG_VERSION="86fd987"
+PKG_SHA256="b3e0259239cbba4ebe539185967820aa463a4d8a4b3187c77f7b90698ea1849e"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

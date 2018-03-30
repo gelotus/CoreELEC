@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.nestopia"
-PKG_VERSION="047b89c"
-PKG_SHA256="80641a62f787bbd396b659b004892e698319a6528166a32b1189a51b4f53e9e4"
+PKG_VERSION="81c1db0"
+PKG_SHA256="3c1a579c5610b27661416054e1402f483c7658ba1eb25b4de5bb5161fd8dc6db"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

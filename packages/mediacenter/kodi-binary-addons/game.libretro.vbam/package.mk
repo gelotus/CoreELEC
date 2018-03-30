@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.vbam"
-PKG_VERSION="1701ab5"
-PKG_SHA256="dc0d9c13ad96e17a5e6c5ec5a94eaf19270b014f929bc2cad69fccd82d0c3772"
+PKG_VERSION="c2f5d7c"
+PKG_SHA256="f4208f2b197fa89287fbd72161820853261fb5019b3e0ee68bd2f81b61774ee3"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

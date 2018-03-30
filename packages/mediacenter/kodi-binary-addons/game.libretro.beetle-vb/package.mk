@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.beetle-vb"
-PKG_VERSION="1160f9c"
-PKG_SHA256="6b9219b9a8220b7e7a6dc1888b8122b6222696bbadfec59fbe4b7cdb10114fb5"
+PKG_VERSION="61c2022"
+PKG_SHA256="69b448d877f6d136363c5ad5d8994d1896789e3bfd971f288b296a4c4fc751de"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

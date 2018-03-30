@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.vecx"
-PKG_VERSION="7599497"
-PKG_SHA256="95e318e399a238a46ecb741d3070366f31638288e875bb6300e0186dd0caaec7"
+PKG_VERSION="19a6206"
+PKG_SHA256="8a3f3c33405af7f25543b0b17da0c3a8044cc30389b8d218423aab6c7a33abc0"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

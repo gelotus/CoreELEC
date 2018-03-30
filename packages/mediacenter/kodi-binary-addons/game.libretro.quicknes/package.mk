@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.quicknes"
-PKG_VERSION="bec9b79"
-PKG_SHA256="f52d21f1b207afd52c9f68c59bb15207c8c06940cbf26f3955c901c977e7e59b"
+PKG_VERSION="4e55adb"
+PKG_SHA256="2d1eb9917d2963e73dd366f2616167863d7a556da7518de04683818db39fb9a1"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

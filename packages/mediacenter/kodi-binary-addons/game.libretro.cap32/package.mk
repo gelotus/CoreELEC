@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.cap32"
-PKG_VERSION="b416bee"
-PKG_SHA256="a60a317a9551d2c471185d20ca61b77c8e645ad7a2bdc115c5e0351813519a96"
+PKG_VERSION="0283851"
+PKG_SHA256="32fb52089ef85684301813473ee858cee1f170c694f80c07e36bfbce1bc200ac"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
