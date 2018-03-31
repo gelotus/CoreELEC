@@ -41,8 +41,8 @@ case "$PROJECT" in
     PKG_NEED_UNPACK+=" $(get_pkg_directory rkbin)"
     ;;
   *)
-    PKG_VERSION="2017.09"
-    PKG_SHA256="b2d15f2cf5f72e706025cde73d67247c6da8cd35f7e10891eefe7d9095089744"
+    PKG_VERSION="2018.03"
+    PKG_SHA256="7e7477534409d5368eb1371ffde6820f0f79780a1a1f676161c48442cb303dfd"
     PKG_URL="http://ftp.denx.de/pub/u-boot/u-boot-$PKG_VERSION.tar.bz2"
     ;;
 esac
