@@ -1,6 +1,6 @@
 ################################################################################
 #      This file is part of LibreELEC - https://libreelec.tv
-#      Copyright (C) 2017-present Team LibreELEC
+#      Copyright (C) 2018-present Team LibreELEC
 #
 #  LibreELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -16,18 +16,5 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="pvr.zattoo"
-PKG_VERSION="ac0da38"
-PKG_SHA256="5cbdb43a276c4711b7034242324df9eb04dbd732f799fe5248c41add51e29e8c"
-PKG_REV="2"
-PKG_ARCH="any"
-PKG_LICENSE="GPL"
-PKG_SITE="http://www.kodi.tv"
-PKG_URL="https://github.com/rbuehlma/pvr.zattoo/archive/$PKG_VERSION.tar.gz"
-PKG_DEPENDS_TARGET="toolchain kodi-platform"
-PKG_SECTION=""
-PKG_SHORTDESC="pvr.zattoo"
-PKG_LONGDESC="pvr.zattoo"
-
-PKG_IS_ADDON="yes"
-PKG_ADDON_TYPE="xbmc.pvrclient"
+printf "%${BUILD_INDENT}c $(print_color CLR_GET "GET")      $1 (file)\n" ' '>&$SILENT_OUT
+export BUILD_INDENT=$((${BUILD_INDENT:-1}+$BUILD_INDENT_SIZE))
