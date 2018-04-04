@@ -15,12 +15,12 @@ index dd76c7e..78cb56f 100644
 @@ -1,8 +1,8 @@
  ACLOCAL_AMFLAGS = -I m4
  GLIB_PC=dbus-glib-1.pc
- 
--SUBDIRS=dbus tools test doc
--DIST_SUBDIRS=dbus tools test doc m4
-+SUBDIRS=dbus test doc
-+DIST_SUBDIRS=dbus test doc m4
- 
+
+-SUBDIRS = dbus-gmain dbus tools test doc
+-DIST_SUBDIRS = dbus-gmain dbus tools test doc m4
++SUBDIRS=dbus-gmain dbus test doc
++DIST_SUBDIRS=dbus-gmain dbus test doc m4
+
  pkgconfigdir = $(libdir)/pkgconfig
  pkgconfig_DATA = $(GLIB_PC)
 diff --git a/dbus/Makefile.am b/dbus/Makefile.am
@@ -30,9 +30,3 @@ index 6d885f9..8bc102d 100644
 @@ -1,4 +1,4 @@
 -SUBDIRS = . examples
 +SUBDIRS = .
- 
- INCLUDES = \
- 	-I$(top_srcdir)						\
--- 
-1.7.2.5
-

@@ -17,9 +17,9 @@ index a1bb0d00..9d129b7 100644
  #include "filesystem/StackDirectory.h"
 +#include "filesystem/File.h"
 +#include "filesystem/CurlFile.h"
+ #include "guilib/GUIComponent.h"
  #include "guilib/GUIWindowManager.h"
  #include "guilib/StereoscopicsManager.h"
- #include "GUIUserMessages.h"
 @@ -367,10 +369,28 @@ bool CVideoThumbLoader::LoadItemLookup(CFileItem* pItem)
    // We can only extract flags/thumbs for file-like items
    if (!pItem->m_bIsFolder && pItem->IsVideo())
@@ -49,6 +49,6 @@ index a1bb0d00..9d129b7 100644
 +      else if (!XFILE::CFile::Exists(url))
 +        pItem->SetArt("thumb", "");
 +    }
- 
+
      if (!pItem->HasArt("thumb"))
      {

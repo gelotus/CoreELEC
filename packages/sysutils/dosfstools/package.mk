@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="dosfstools"
-PKG_VERSION="3.0.28"
-PKG_SHA256="ee95913044ecf2719b63ea11212917649709a6e53209a72d622135aaa8517ee2"
+PKG_VERSION="4.1"
+PKG_SHA256="e6b2aca70ccc3fe3687365009dd94a2e18e82b688ed4e260e04b7412471cc173"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/dosfstools/dosfstools"
@@ -32,10 +32,6 @@ PKG_LONGDESC="dosfstools contains utilities for making and checking MS-DOS FAT f
 PKG_MAKE_OPTS_TARGET="PREFIX=/usr"
 PKG_MAKEINSTALL_OPTS_TARGET="PREFIX=/usr"
 
-make_init() {
-  : # reuse make_target()
-}
-
 pre_build_host() {
   mkdir -p $PKG_BUILD/.$HOST_NAME
   cp -RP $PKG_BUILD/* $PKG_BUILD/.$HOST_NAME
@@ -48,13 +44,13 @@ make_host() {
 
 makeinstall_init() {
   mkdir -p $INSTALL/usr/sbin
-    cp fsck.fat $INSTALL/usr/sbin
+    cp src/fsck.fat $INSTALL/usr/sbin
     ln -sf fsck.fat $INSTALL/usr/sbin/fsck.msdos
     ln -sf fsck.fat $INSTALL/usr/sbin/fsck.vfat
 }
 
 makeinstall_host() {
   mkdir -p $TOOLCHAIN/sbin
-    cp mkfs.fat $TOOLCHAIN/sbin
+    cp src/mkfs.fat $TOOLCHAIN/sbin
     ln -sf mkfs.fat $TOOLCHAIN/sbin/mkfs.vfat
 }

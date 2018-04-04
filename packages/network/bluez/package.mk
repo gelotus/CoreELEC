@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="bluez"
-PKG_VERSION="5.48"
-PKG_SHA256="a89ba9f21eabdc28a6eec046c14f901ee2d9809d303f8df25e9e2d4d7c4c2dc8"
+PKG_VERSION="5.49"
+PKG_SHA256="330411880d42ae3586fa77976032b585ffabdf98faebd8b29e6c0f9990047884"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.bluez.org/"

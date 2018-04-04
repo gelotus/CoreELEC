@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="driverselect"
-PKG_VERSION="2b79180"
-PKG_SHA256="ed1e9defa185b46d4400794681f21f2bf1ddf8ccdfdb20e49ddde3edccdd6b7f"
+PKG_VERSION="7b197e1"
+PKG_SHA256="a511e208742ba69ed644ddcedbfcba99186aeb88a0b620fecda2b839cb7805b9"
 PKG_REV="100"
 PKG_ARCH="any"
 PKG_LICENSE="OSS"

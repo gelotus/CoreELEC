@@ -21,8 +21,8 @@
 # use fakeroot-1.18.4 instead until attr:host builds
 
 PKG_NAME="fakeroot"
-PKG_VERSION="1.20.2"
-PKG_SHA256="7c0a164d19db3efa9e802e0fc7cdfeff70ec6d26cdbdc4338c9c2823c5ea230c"
+PKG_VERSION="1.22"
+PKG_SHA256="bd806a4a1e641203eb3d4571a10089e8a038c10ec7e492fa1e061b03ae3ec6fe"
 PKG_ARCH="any"
 PKG_LICENSE="GPL3"
 PKG_SITE="http://fakeroot.alioth.debian.org/"
