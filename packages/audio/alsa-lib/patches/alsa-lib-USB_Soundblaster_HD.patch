@@ -15,9 +15,10 @@ index 4cbf85e..2591d00 100644
  # Second iec958 device number, if any.
  USB-Audio.pcm.iec958_2_device {
  	"PHIREE U2" 1  # 0 = PCM S/PDIF, 1 = non-PCM S/PDIF
+	"PHIREE U2SX" 1  # 0 = PCM S/PDIF, 1 = non-PCM S/PDIF
 +	"USB Sound Blaster HD" 1
  }
- 
- 
--- 
+
+
+--
 2.1.4
