@@ -17,26 +17,17 @@
 ################################################################################
 
 PKG_NAME="fuse"
-PKG_VERSION="2.9.7"
-PKG_SHA256="832432d1ad4f833c20e13b57cf40ce5277a9d33e483205fc63c78111b3358874"
+PKG_VERSION="3.2.2"
+PKG_SHA256="76836c3e458fa971ee354057bfaef84df7a876afe60492dda9b30e7dcad9c887"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/libfuse/libfuse/"
-PKG_URL="https://github.com/libfuse/libfuse/releases/download/$PKG_NAME-$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_URL="https://github.com/libfuse/libfuse/releases/download/$PKG_NAME-$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.xz"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_SECTION="system"
 PKG_SHORTDESC="fuse: A simple user-space filesystem interface for Linux"
 PKG_LONGDESC="FUSE provides a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. FUSE also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations."
 # fuse fails to build with GOLD linker on gcc-4.9
-PKG_BUILD_FLAGS="-gold"
-
-PKG_CONFIGURE_OPTS_TARGET="MOUNT_FUSE_PATH=/usr/sbin \
-                           --enable-lib \
-                           --enable-util \
-                           --disable-example \
-                           --enable-mtab \
-                           --disable-rpath \
-                           --with-gnu-ld"
 
 post_makeinstall_target() {
   rm -rf $INSTALL/etc/init.d
