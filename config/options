@@ -8,9 +8,9 @@ fi
   export LC_ALL=C
 
 # determines DISTRO, if not forced by user
-# default is LibreELEC
+# default is CoreELEC
 if [ -z "$DISTRO" ]; then
-  DISTRO="LibreELEC"
+  DISTRO="CoreELEC"
 else
   DISTRO="$DISTRO"
 fi
@@ -95,12 +95,12 @@ fi
   CCACHE_CACHE_SIZE="10G"
 
 # read options from $HOME if available
-  if [ -f "$HOME/.libreelec/options" ]; then
-    . $HOME/.libreelec/options
+  if [ -f "$HOME/.coreelec/options" ]; then
+    . $HOME/.coreelec/options
   fi
 
 # install devtools on development builds
-  if [ -z "$DEVTOOLS" -a "$LIBREELEC_VERSION" = "devel" ]; then
+  if [ -z "$DEVTOOLS" -a "$COREELEC_VERSION" = "devel" ]; then
     DEVTOOLS=yes
   fi
 
