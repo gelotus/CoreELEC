@@ -20,7 +20,7 @@ set -e
 
 [ -z "${DEBUG_LOG}" ] && DEBUG_LOG=/tmp/distro-tool.log
 
-LIBREELEC_DIR=$HOME/LibreELEC.tv
+COREELEC_DIR=$HOME/CoreELEC
 TARGET_DIR=$HOME/sources
 DOWNLOAD_DIR=$HOME/download
 REVISION=
@@ -683,7 +683,7 @@ if __name__ == "__main__":
 help() {
   [ -n "$1" ] && echo -e "ERROR: Unknown argument [$1]\n"
   cat <<EOF
-Usage: $(basename $0) -d|--download <path> [-t|--target <path>] [-l|--libreelec <path>]
+Usage: $(basename $0) -d|--download <path> [-t|--target <path>] [-l|--coreelec <path>]
            [-m|--mirror] [-s|--source] [-a|-all] [-p|--package <package_name> [-r|--revision <revision>]]
            [--git] [-n|--notnewer] [--check-main | --check-addons] [--check-ver | --check-rev] 
            [--noprogress] [-T #|--threads #] [-U|--gituser] [-P|--gitpass] [--dry-run]
@@ -692,13 +692,13 @@ Usage: $(basename $0) -d|--download <path> [-t|--target <path>] [-l|--libreelec 
 Options:
   -d, --download:     Directory path into which new package files will be downloaded - default is $HOME/download[1]
   -t, --target:       Directory path for existing packages that are to be refreshed, default is $HOME/sources[2]
-  -l, --libreelec:    LibreELEC.tv repo, default is ${HOME}/LibreELEC.tv
+  -l, --coreelec:     CoreELEC repo, default is ${HOME}/CoreELEC
   -m, --mirror:       Target is mirror not source - mirror uses a hierarchical per-package folder structure
   -s, --source:       Target is source not mirror - source uses a flattened file structure. Default is mirror
   -a, --all:          Ignore download failures, continue processing all packages
   -p, --package:      Package to process, otherwise process all packages
   -r, --revision:     Version to use in place of PKG_VERSION, only applicable in conjunction with -p
-      --git:          Clone (if not available) or pull the LibreELEC.tv repository
+      --git:          Clone (if not available) or pull the CoreELEC repository
   -n, --notnewer:     Don't check for newer packages ('X.Y.Z+1' 'X.Y+1.0' 'X+1.0.0')
       --check-main:   Check newer for main packages, ignore add-on packages
       --check-addons: Check newer for add-on packages, ignore main packages
@@ -712,20 +712,20 @@ Options:
   -v, --verbose:      Output more verbose sync information. Repeat for more detail
   -h, --help:         This message
 
-  Note#1. The download directory will have the LibreELEC version appended (eg. /devel) unless it is a mirror, in which case "/mirror" will be appended.
-  Note#2. The target directory will have the LibreELEC version appended (eg. /devel) unless it is a mirror, in which case "/mirror" will be appended.
+  Note#1. The download directory will have the CoreELEC version appended (eg. /devel) unless it is a mirror, in which case "/mirror" will be appended.
+  Note#2. The target directory will have the CoreELEC version appended (eg. /devel) unless it is a mirror, in which case "/mirror" will be appended.
 EOF
 }
 
-get_libreelec_branch() {
-  cd $LIBREELEC_DIR
+get_coreelec_branch() {
+  cd $COREELEC_DIR
   git rev-parse --abbrev-ref HEAD
 }
 
-# 1: LibreELEC variable, eg. LIBREELEC_VERSION
-get_libreelec_option() {
+# 1: CoreELEC variable, eg. COREELEC_VERSION
+get_coreelec_option() {
   local variable="$1"
-  cd $LIBREELEC_DIR
+  cd $COREELEC_DIR
   source config/options ""
   echo "${!variable}"
 }
@@ -760,7 +760,7 @@ generate_work() {
   init_progress
 
   (
-    cd $LIBREELEC_DIR
+    cd $COREELEC_DIR
     source config/options ""
 
     tcount=0
@@ -808,7 +808,7 @@ generate_work_worker() {
       :
     }
 
-    cd $LIBREELEC_DIR
+    cd $COREELEC_DIR
 
     while read -r package_name; do
       [ ${PROGRESS} == yes ] && progress ${pcount}
@@ -824,8 +824,8 @@ generate_work_worker() {
       fi
 
       PKG_IS_ADDON=No
-      [[ ${PKG_DIR/${LIBREELEC_DIR}/} =~ ^/packages/addons/.* ]] && PKG_IS_ADDON=Yes
-      [[ ${PKG_DIR/${LIBREELEC_DIR}/} =~ ^/packages/mediacenter/kodi-binary-addons/.* ]] && PKG_IS_ADDON=Yes
+      [[ ${PKG_DIR/${COREELEC_DIR}/} =~ ^/packages/addons/.* ]] && PKG_IS_ADDON=Yes
+      [[ ${PKG_DIR/${COREELEC_DIR}/} =~ ^/packages/mediacenter/kodi-binary-addons/.* ]] && PKG_IS_ADDON=Yes
 
       echo "  {" >>${workfile_o}
       for var in ${wanted_vars}; do
@@ -862,7 +862,7 @@ get_packages() {
 
   export -f get_package_path
 
-  cd $LIBREELEC_DIR
+  cd $COREELEC_DIR
 
   if [ -n "${package_name}" ]; then
     basename $(dirname $(find packages projects/${PROJECT} -path "*/${package_name}/*" -name package.mk) 2>/dev/null | head -1) 2>/dev/null
@@ -907,9 +907,9 @@ while [ : ]; do
       shift
       DOWNLOAD_DIR=$1
       ;;
-    -l|--libreelec)
+    -l|--coreelec)
       shift
-      LIBREELEC_DIR=$1
+      COREELEC_DIR=$1
       ;;
     -t|--target)
       shift
@@ -988,33 +988,33 @@ done
 
 if [ ${DOGIT} == yes ]; then
   (
-    if [ -d ${LIBREELEC_DIR}/.git ]; then
-      cd ${LIBREELEC_DIR}
+    if [ -d ${COREELEC_DIR}/.git ]; then
+      cd ${COREELEC_DIR}
       git pull
     else
-      mkdir -p $(dirname "${LIBREELEC_DIR}") 2>/dev/null
-      cd $(dirname "${LIBREELEC_DIR}")
-      git clone https://github.com/LibreELEC/LibreELEC.tv.git $(basename "${LIBREELEC_DIR}")
+      mkdir -p $(dirname "${COREELEC_DIR}") 2>/dev/null
+      cd $(dirname "${COREELEC_DIR}")
+      git clone https://github.com/CoreELEC/CoreELEC.git $(basename "${COREELEC_DIR}")
     fi
   )
 fi
 
-check_exists LIBREELEC_DIR || exit
-LIBREELEC_DIR="$(get_abs_path "${LIBREELEC_DIR}")"
+check_exists CORREELEC_DIR || exit
+COREELEC_DIR="$(get_abs_path "${COREELEC_DIR}")"
 
-DISTRO_SOURCE="$(get_libreelec_option DISTRO_SRC)"
-DISTRO_MIRROR="$(get_libreelec_option DISTRO_MIRROR)"
-LIBREELEC_VER="$(get_libreelec_option LIBREELEC_VERSION)"
+DISTRO_SOURCE="$(get_coreelec_option DISTRO_SRC)"
+DISTRO_MIRROR="$(get_coreelec_option DISTRO_MIRROR)"
+COREELEC_VER="$(get_coreelec_option COREELEC_VERSION)"
 
 if [ ${IS_MIRROR} == no ]; then
-  TARGET_DIR="$(get_abs_path "${TARGET_DIR}/${LIBREELEC_VER}")"
+  TARGET_DIR="$(get_abs_path "${TARGET_DIR}/${COREELEC_VER}")"
 else
   TARGET_DIR="$(get_abs_path "${TARGET_DIR}/mirror")"
 fi
 check_exists TARGET_DIR || exit
 
 if [ ${IS_MIRROR} == no ]; then
-  DOWNLOAD_DIR="$(get_abs_path "${DOWNLOAD_DIR}/${LIBREELEC_VER}")"
+  DOWNLOAD_DIR="$(get_abs_path "${DOWNLOAD_DIR}/${COREELEC_VER}")"
 else
   DOWNLOAD_DIR="$(get_abs_path "${DOWNLOAD_DIR}/mirror")"
 fi
@@ -1027,9 +1027,9 @@ fi
 
 echo
 if [ ${IS_MIRROR} == yes ]; then
-  echo "Synchronising LibreELEC.tv (branch: $(get_libreelec_branch), version: ${LIBREELEC_VER}) with MIRROR server ${TARGET_DIR}"
+  echo "Synchronising CoreELEC (branch: $(get_coreelec_branch), version: ${COREELEC_VER}) with MIRROR server ${TARGET_DIR}"
 else
-  echo "Synchronising LibreELEC.tv (branch: $(get_libreelec_branch), version: ${LIBREELEC_VER}) with SOURCE server ${TARGET_DIR}"
+  echo "Synchronising CoreELEC (branch: $(get_coreelec_branch), version: ${COREELEC_VER}) with SOURCE server ${TARGET_DIR}"
 fi
 echo
 echo "Distro Source is: ${DISTRO_SOURCE}"
