@@ -8,20 +8,20 @@
   HARDENING_SUPPORT="no"
 
 # Name of the Distro to build (full name, without special characters)
-  DISTRONAME="LibreELEC"
+  DISTRONAME="CoreELEC"
 
 # short project description
-  DESCRIPTION="LibreELEC is a fast and user-friendly Kodi Entertainment Center distribution."
+  DESCRIPTION="CoreELEC is a fast and user-friendly Kodi Entertainment Center distribution."
 
 # Welcome Message for e.g. SSH Server (up to 5 Lines)
   GREETING0="##############################################"
-  GREETING1="#                 LibreELEC                  #"
-  GREETING2="#            https://libreelec.tv            #"
+  GREETING1="#                  CoreELEC                  #"
+  GREETING2="#            https://coreelec.org            #"
   GREETING3="##############################################"
   GREETING4=""
 
 # Root password to integrate in the target system
-  ROOT_PASSWORD="libreelec"
+  ROOT_PASSWORD="coreelec"
 
 # Install glibc locales to the build (yes / no)
   GLIBC_LOCALES="yes"
@@ -189,8 +189,8 @@
   CRON_SUPPORT="yes"
 
 # Distribution Specific source location
-  DISTRO_MIRROR="http://sources.libreelec.tv/mirror"
-  DISTRO_SRC="http://sources.libreelec.tv/$LIBREELEC_VERSION"
+  DISTRO_MIRROR="http://sources.coreelec.org/mirror"
+  DISTRO_SRC="http://sources.coreelec.org/$CORREELEC_VERSION"
 
 # Addon Server Url
   ADDON_SERVER_URL="https://github.com/CoreELEC/addons/raw/master"
