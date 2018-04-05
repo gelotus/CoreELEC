@@ -1,7 +1,7 @@
 From 1eab6c71f578b46bc9f33378252840ed46f9c443 Mon Sep 17 00:00:00 2001
 From: kszaq <kszaquitto@gmail.com>
 Date: Sat, 17 Feb 2018 20:30:08 +0100
-Subject: [PATCH] khadas_vim: amend boot procedure for LibreELEC
+Subject: [PATCH] khadas_vim: amend boot procedure for CoreELEC
 
 * make eMMC use MBR instead of AML partition structure
 * port eMMC/SD renumbering from Hardkernel to allow booting from either SD or eMMC

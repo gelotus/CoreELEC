@@ -36,4 +36,4 @@ write_raw_image(package_extract_file("logo.img"), "logo");
 
 set_bootloader_env("upgrade_step", "1");
 set_progress(1);
-ui_print("LibreELEC Installed Successfully");
+ui_print("CoreELEC Installed Successfully");
