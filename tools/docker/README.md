@@ -3,15 +3,15 @@
 **Clone repo**
 
 * `cd ~/`
-* `git clone https://github.com/LibreELEC/LibreELEC.tv.git LibreELEC`
+* `git clone https://github.com/CoreELEC/CoreELEC.git CoreELEC`
 
 **Build container**
 
-* `cd ~/LibreELEC`
-* `docker build --pull -t libreelec tools/docker`
+* `cd ~/CoreELEC`
+* `docker build --pull -t coreelec tools/docker`
 
 **Build image inside container**
 
-* `docker run -v ~/:/home/docker -h libreelec -it libreelec`
-* `cd ~/LibreELEC`
+* `docker run -v ~/:/home/docker -h coreelec -it coreelec`
+* `cd ~/CoreELEC`
 * `make image`

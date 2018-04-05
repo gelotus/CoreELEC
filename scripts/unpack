@@ -32,15 +32,15 @@ fi
 
 $SCRIPTS/get $1
 
-STAMP=$PKG_BUILD/.libreelec-unpack
+STAMP=$PKG_BUILD/.coreelec-unpack
 
 mkdir -p $BUILD
 
 # Perform a wildcard match on the package to ensure old versions are cleaned too
 PKG_DEEPHASH=
 for i in $BUILD/$1-*; do
-  if [ -d $i -a -f "$i/.libreelec-unpack" ] ; then
-    . "$i/.libreelec-unpack"
+  if [ -d $i -a -f "$i/.coreelec-unpack" ] ; then
+    . "$i/.coreelec-unpack"
     if [ "$STAMP_PKG_NAME" = "$1" ]; then
       [ -z "${PKG_DEEPHASH}" ] && PKG_DEEPHASH=$(calculate_stamp)
       if [ ! "$PKG_DEEPHASH" = "$STAMP_PKG_DEEPHASH" ] ; then

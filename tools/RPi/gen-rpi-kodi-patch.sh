@@ -90,9 +90,9 @@ echo
 echo "New kodi patch: /tmp/kodi.patch"
 
 echo
-echo "## LibreELEC Update Notes ##"
+echo "## CoreELEC Update Notes ##"
 echo
-echo "cd LibreELEC.tv"
+echo "cd CoreELEC"
 echo "git checkout master"
 echo "git pull upstream master"
 echo "git checkout -b somebranch"

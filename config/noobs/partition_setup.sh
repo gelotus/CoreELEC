@@ -17,7 +17,7 @@
 #  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-MOUNTPOINT="/tmp/LibreELEC-System"
+MOUNTPOINT="/tmp/CoreELEC-System"
 
 md5sumCheck() {
   ( cd $MOUNTPOINT
@@ -26,10 +26,10 @@ md5sumCheck() {
     if [ "$?" = "1" ]; then
       echo "#######################################################"
       echo "#                                                     #"
-      echo "# LibreELEC failed md5 check - Installation will quit #"
+      echo "# CoreELEC failed md5 check -- Installation will quit #"
       echo "#                                                     #"
       echo "#    Your original download was probably corrupt.     #"
-      echo "#   Please visit libreelec.tv and get another copy    #"
+      echo "#   Please visit coreelec.org and get another copy    #"
       echo "#                                                     #"
       echo "#######################################################"
       exit 1

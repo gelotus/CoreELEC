@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="os.corelec.org" version="@OS_VERSION@" provider-name="CoreELEC.org">
+  <requires>
+    <import addon="xbmc.addon" version="12.0"/>
+  </requires>
+</addon>

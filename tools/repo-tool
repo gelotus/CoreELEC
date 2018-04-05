@@ -162,7 +162,7 @@ update_repo_version() {
       sed -i -e "s|PKG_ADDON_REPOVERSION=.*|PKG_ADDON_REPOVERSION=\"$ADDON_VERSION\"|" $package
       sed -i -e "s|PKG_REV=.*|PKG_REV=\"100\"|" $package
       changelog="$(echo $package | sed 's/package.mk/changelog.txt/')"
-      sed -i "1i${ADDON_VERSION}.100\n- Update for LibreELEC ${ADDON_VERSION}\n" $changelog
+      sed -i "1i${ADDON_VERSION}.100\n- Update for CoreELEC ${ADDON_VERSION}\n" $changelog
     fi
     )
   done
