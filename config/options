@@ -8,9 +8,9 @@ fi
   export LC_ALL=C
 
 # determines DISTRO, if not forced by user
-# default is LibreELEC
+# default is CoreELEC
 if [ -z "$DISTRO" ]; then
-  DISTRO="LibreELEC"
+  DISTRO="CoreELEC"
 else
   DISTRO="$DISTRO"
 fi
