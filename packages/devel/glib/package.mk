@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="glib"
-PKG_VERSION="2.53.5"
-PKG_SHA256="991421f41a4ed4cc1637e5f9db0d03fd236d2cbd19f3c5b097a343bec5126602"
+PKG_VERSION="2.56.0"
+PKG_SHA256="ecef6e17e97b8d9150d0e8a4b3edee1ac37331213b8a2a87a083deea408a0fc7"
 PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://www.gtk.org/"
