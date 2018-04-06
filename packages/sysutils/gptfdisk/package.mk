@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="gptfdisk"
-PKG_VERSION="1.0.1"
-PKG_SHA256="864c8aee2efdda50346804d7e6230407d5f42a8ae754df70404dd8b2fdfaeac7"
+PKG_VERSION="1.0.3"
+PKG_SHA256="89fd5aec35c409d610a36cb49c65b442058565ed84042f767bba614b8fc91b5c"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.rodsbooks.com/gdisk/"
