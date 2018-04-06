@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="LibreELEC-settings"
-PKG_VERSION="0ec74f6"
-PKG_SHA256="f9e5a1ead9c1a3832122deb4831980dac87ec3b8f748e6449b6b090c40f09249"
+PKG_VERSION="3ce5752"
+PKG_SHA256="afba96a010f777f7a2dec91155ffef911f252a6795ba0930fa47fef06dfdc39e"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://libreelec.tv"
-PKG_URL="https://github.com/LibreELEC/service.libreelec.settings/archive/$PKG_VERSION.tar.gz"
+PKG_URL="https://github.com/CoreELEC/service.libreelec.settings/archive/$PKG_VERSION.tar.gz"
 PKG_SOURCE_DIR="service.libreelec.settings-$PKG_VERSION*"
 PKG_DEPENDS_TARGET="toolchain Python2 connman pygobject dbus-python"
 PKG_SECTION=""
