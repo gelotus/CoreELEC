@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="flex"
-PKG_VERSION="2.5.39"
-PKG_SHA256="add2b55f3bc38cb512b48fad7d72f43b11ef244487ff25fc00aabec1e32b617f"
+PKG_VERSION="b33fd4c"
+PKG_SHA256="3d7f63804b090669a2c5c8cb5ed48e50b94cfa797cba2781d7bded9164a1e25c"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="http://flex.sourceforge.net/"
-PKG_URL="$SOURCEFORGE_SRC/flex/$PKG_NAME-$PKG_VERSION.tar.bz2"
+PKG_SITE="https://github.com/westes/flex/"
+PKG_URL="https://github.com/westes/flex/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_HOST="ccache:host"
 PKG_SECTION="toolchain/devel"
 PKG_SHORTDESC="flex: Fast lexical analyzer generator"
