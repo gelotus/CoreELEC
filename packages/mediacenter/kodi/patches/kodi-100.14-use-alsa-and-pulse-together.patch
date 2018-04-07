@@ -15,7 +15,7 @@ index 62d5707..96893b3 100644
 --- a/xbmc/windowing/X11/WinSystemX11GLContext.cpp
 +++ b/xbmc/windowing/X11/WinSystemX11GLContext.cpp
 @@ -51,31 +51,8 @@ std::unique_ptr<CWinSystemBase> CWinSystemBase::CreateWinSystem()
- 
+
  CWinSystemX11GLContext::CWinSystemX11GLContext()
  {
 -  std::string envSink;
@@ -46,20 +46,20 @@ index 62d5707..96893b3 100644
 +  X11::ALSARegister();
 +  X11::PulseAudioRegister();
  }
- 
+
  CWinSystemX11GLContext::~CWinSystemX11GLContext()
-diff --git a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp
-index 1fe4eaf..c671250 100644
---- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp
-+++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp
-@@ -32,6 +32,7 @@
- // AESink Factory
- #include "cores/AudioEngine/AESinkFactory.h"
- #include "cores/AudioEngine/Sinks/AESinkALSA.h"
-+#include "cores/AudioEngine/Sinks/AESinkPULSE.h"
- #include "guilib/GraphicContext.h"
- #include "guilib/Resolution.h"
- #include "platform/linux/powermanagement/LinuxPowerSyscall.h"
+
+ --- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp	2018-04-07 20:00:40.000000000 +0200
+ +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp	2018-04-08 00:24:49.347449426 +0200
+ @@ -32,6 +32,7 @@
+  // AESink Factory
+  #include "cores/AudioEngine/AESinkFactory.h"
+  #include "cores/AudioEngine/Sinks/AESinkALSA.h"
+ +#include "cores/AudioEngine/Sinks/AESinkPULSE.h"
+  #include "windowing/GraphicContext.h"
+  #include "windowing/Resolution.h"
+  #include "platform/linux/powermanagement/LinuxPowerSyscall.h"
+
 @@ -79,6 +80,7 @@ CWinSystemAmlogic::CWinSystemAmlogic()
    // Register sink
    AE::CAESinkFactory::ClearSinks();
@@ -67,7 +67,7 @@ index 1fe4eaf..c671250 100644
 +  CAESinkPULSE::Register();
    CLinuxPowerSyscall::Register();
  }
- 
+
 diff --git a/xbmc/windowing/gbm/WinSystemGbm.cpp b/xbmc/windowing/gbm/WinSystemGbm.cpp
 index 2786e86..50ce1e0 100644
 --- a/xbmc/windowing/gbm/WinSystemGbm.cpp
@@ -103,7 +103,7 @@ index 2786e86..50ce1e0 100644
 -  }
 +  GBM::ALSARegister();
 +  GBM::PulseAudioRegister();
- 
+
    m_winEvents.reset(new CWinEventsLinux());
    CLinuxPowerSyscall::Register();
 diff --git a/xbmc/windowing/rpi/WinSystemRpi.cpp b/xbmc/windowing/rpi/WinSystemRpi.cpp
@@ -118,7 +118,7 @@ index c7b8319..a09dbf0 100644
  #include "cores/AudioEngine/Sinks/AESinkPi.h"
 +#include "cores/AudioEngine/Sinks/AESinkPULSE.h"
  #include "platform/linux/powermanagement/LinuxPowerSyscall.h"
- 
+
  #include <EGL/egl.h>
 @@ -56,6 +58,8 @@ CWinSystemRpi::CWinSystemRpi()
    m_winEvents.reset(new CWinEventsLinux());
@@ -128,7 +128,6 @@ index c7b8319..a09dbf0 100644
 +  CAESinkPULSE::Register();
    CLinuxPowerSyscall::Register();
  }
- 
--- 
-2.14.1
 
+--
+2.14.1
