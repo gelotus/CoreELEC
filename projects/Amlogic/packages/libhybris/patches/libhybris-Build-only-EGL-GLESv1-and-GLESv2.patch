@@ -6,7 +6,7 @@ index 906140e..75888ae 100644
  if HAS_ANDROID_5_0_0
  SUBDIRS += libsync
  endif
--SUBDIRS += egl glesv1 glesv2 ui sf input camera vibrator media wifi
+-SUBDIRS += egl glesv1 glesv2 ui sf input camera vibrator media wifi opencl
 -
 -if HAS_LIBNFC_NXP_HEADERS
 -SUBDIRS += libnfc_nxp libnfc_ndef_nxp
@@ -14,6 +14,6 @@ index 906140e..75888ae 100644
 -SUBDIRS += utils tests
 -
 +SUBDIRS += egl glesv1 glesv2
- 
+
  MAINTAINERCLEANFILES = \
  	aclocal.m4 compile config.guess config.sub \

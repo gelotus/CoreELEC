@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libgcrypt"
-PKG_VERSION="1.8.1"
-PKG_SHA256="7a2875f8b1ae0301732e878c0cca2c9664ff09ef71408f085c50e332656a78b3"
+PKG_VERSION="1.8.2"
+PKG_SHA256="c8064cae7558144b13ef0eb87093412380efa16c4ee30ad12ecb54886a524c07"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://www.gnupg.org/"
