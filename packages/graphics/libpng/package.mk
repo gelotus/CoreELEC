@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libpng"
-PKG_VERSION="1.6.29"
-PKG_SHA256="4245b684e8fe829ebb76186327bb37ce5a639938b219882b53d64bd3cfc5f239"
+PKG_VERSION="1.6.34"
+PKG_SHA256="2f1e960d92ce3b3abd03d06dfec9637dfbd22febf107a536b44f7a47c60659f6"
 PKG_ARCH="any"
 PKG_LICENSE="OSS"
 PKG_SITE="http://www.libpng.org/"

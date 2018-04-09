@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libraw"
-PKG_VERSION="0.18.7"
-PKG_SHA256="87e347c261a8e87935d9a23afd750d27676b99f540e8552314d40db0ea315771"
+PKG_VERSION="0.18.8"
+PKG_SHA256="56aca4fd97038923d57d2d17d90aa11d827f1f3d3f1d97e9f5a0d52ff87420e2"
 PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://www.libraw.org/"

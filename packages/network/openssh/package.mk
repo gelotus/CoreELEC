@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="openssh"
-PKG_VERSION="7.5p1"
-PKG_SHA256="9846e3c5fab9f0547400b4d2c017992f914222b3fd1f8eee6c7dc6bc5e59f9f0"
+PKG_VERSION="7.7p1"
+PKG_SHA256="d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f"
 PKG_ARCH="any"
 PKG_LICENSE="OSS"
 PKG_SITE="http://www.openssh.com/"

@@ -7,7 +7,7 @@ index 06be3d5..5272bda 100644
  STRIP_OPT=@STRIP_OPT@
  TEST_SHELL=@TEST_SHELL@
 +KEYDIR=@KEYDIR@
- 
+
  PATHS= -DSSHDIR=\"$(sysconfdir)\" \
 +	-DKEYDIR=\"$(KEYDIR)\" \
  	-D_PATH_SSH_PROGRAM=\"$(SSH_PROGRAM)\" \
@@ -37,7 +37,7 @@ index 67c4486..b4297bf 100644
 @@ -4429,6 +4429,17 @@ AC_ARG_WITH([superuser-path],
  	]
  )
- 
+
 +# Set keydir
 +AC_ARG_WITH([keydir],
 +	[  --with-keydir=      Specify different path for storing keys],
@@ -49,7 +49,7 @@ index 67c4486..b4297bf 100644
 +	]
 +)
 +AC_SUBST([KEYDIR])
- 
+
  AC_MSG_CHECKING([if we need to convert IPv4 in IPv6-mapped addresses])
  IPV4_IN6_HACK_MSG="no"
 @@ -4799,6 +4810,7 @@ G=`eval echo ${piddir}` ; G=`eval echo ${G}`
@@ -57,7 +57,7 @@ index 67c4486..b4297bf 100644
  I=`eval echo ${user_path}` ; I=`eval echo ${I}`
  J=`eval echo ${superuser_path}` ; J=`eval echo ${J}`
 +K=`eval echo ${KEYDIR}` ; K=`eval echo ${K}`
- 
+
  echo ""
  echo "OpenSSH has been configured with the following options:"
 @@ -4822,6 +4834,9 @@ fi
@@ -77,7 +77,7 @@ index ec89fc6..8a33ca2 100644
 @@ -18,6 +18,10 @@
  #define SSHDIR				ETCDIR "/ssh"
  #endif
- 
+
 +#ifndef KEYDIR
 +#define KEYDIR				SSHDIR
 +#endif
@@ -94,23 +94,25 @@ index ec89fc6..8a33ca2 100644
  /* backward compat for protocol 2 */
 -#define _PATH_SSH_SYSTEM_HOSTFILE2	SSHDIR "/ssh_known_hosts2"
 +#define _PATH_SSH_SYSTEM_HOSTFILE2	KEYDIR "/ssh_known_hosts2"
- 
+
  /*
   * Of these, ssh_host_key must be readable only by root, whereas ssh_config
-@@ -36,11 +40,11 @@
+@@ -36,13 +40,13 @@
   */
  #define _PATH_SERVER_CONFIG_FILE	SSHDIR "/sshd_config"
  #define _PATH_HOST_CONFIG_FILE		SSHDIR "/ssh_config"
--#define _PATH_HOST_KEY_FILE		SSHDIR "/ssh_host_key"
 -#define _PATH_HOST_DSA_KEY_FILE		SSHDIR "/ssh_host_dsa_key"
 -#define _PATH_HOST_ECDSA_KEY_FILE	SSHDIR "/ssh_host_ecdsa_key"
 -#define _PATH_HOST_ED25519_KEY_FILE	SSHDIR "/ssh_host_ed25519_key"
--#define _PATH_HOST_RSA_KEY_FILE		SSHDIR "/ssh_host_rsa_key"
 +#define _PATH_HOST_KEY_FILE		KEYDIR "/ssh_host_key"
 +#define _PATH_HOST_DSA_KEY_FILE		KEYDIR "/ssh_host_dsa_key"
 +#define _PATH_HOST_ECDSA_KEY_FILE	KEYDIR "/ssh_host_ecdsa_key"
+ #define _PATH_HOST_XMSS_KEY_FILE	SSHDIR "/ssh_host_xmss_key"
+-#define _PATH_HOST_RSA_KEY_FILE		SSHDIR "/ssh_host_rsa_key"
 +#define _PATH_HOST_ED25519_KEY_FILE	KEYDIR "/ssh_host_ed25519_key"
-+#define _PATH_HOST_RSA_KEY_FILE		KEYDIR "/ssh_host_rsa_key"
  #define _PATH_DH_MODULI			SSHDIR "/moduli"
- /* Backwards compatibility */
- #define _PATH_DH_PRIMES			SSHDIR "/primes"
+-
++#define _PATH_HOST_RSA_KEY_FILE		KEYDIR "/ssh_host_rsa_key"
+ #ifndef _PATH_SSH_PROGRAM
+ #define _PATH_SSH_PROGRAM		"/usr/bin/ssh"
+ #endif

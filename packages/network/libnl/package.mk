@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libnl"
-PKG_VERSION="3.2.27"
-PKG_SHA256="4bbbf92b3c78a90f423cf96260bf419a28b75db8cced47051217a56795f58ec6"
+PKG_VERSION="3.4.0"
+PKG_SHA256="b7287637ae71c6db6f89e1422c995f0407ff2fe50cecd61a312b6a9b0921f5bf"
 PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://people.suug.ch/~tgr/libnl/"

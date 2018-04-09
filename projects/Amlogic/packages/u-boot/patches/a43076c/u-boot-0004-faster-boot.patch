@@ -1,7 +1,7 @@
 From 2896063602000eb099eb0774d001bbdc76df264a Mon Sep 17 00:00:00 2001
 From: kszaq <kszaquitto@gmail.com>
 Date: Mon, 12 Feb 2018 22:44:10 +0100
-Subject: [PATCH] libretech_cc: amend boot procedure for CoreELEC
+Subject: [PATCH] libretech_cc: amend boot procedure for LibreELEC
 
 * make eMMC use MBR instead of AML partition structure
 * port eMMC/SD renumbering from Hardkernel to allow booting from either SD or eMMC

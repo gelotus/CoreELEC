@@ -28,5 +28,3 @@ mkpkg-temp
 # crap
 .DS_Store
 .directory
-
-distributions/LibreELEC/

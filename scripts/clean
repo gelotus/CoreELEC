@@ -31,8 +31,8 @@ clean_package() {
 
   # Use a wilcard here to remove all versions of the package
   for i in $BUILD/$1-*; do
-    if [ -d $i -a -f "$i/.coreelec-unpack" ] ; then
-      . "$i/.coreelec-unpack"
+    if [ -d $i -a -f "$i/.libreelec-unpack" ] ; then
+      . "$i/.libreelec-unpack"
       if [ "$STAMP_PKG_NAME" = "$1" ]; then
         printf "%${BUILD_INDENT}c $(print_color CLR_WARNING "*") $(print_color CLR_WARNING_DIM "Removing $i ...")\n" ' '>&$SILENT_OUT
         rm -rf $i
