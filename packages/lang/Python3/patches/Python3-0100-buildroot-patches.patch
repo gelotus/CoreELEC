@@ -39,9 +39,9 @@ index 9620067..a76b544 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -1113,6 +1113,12 @@ fi
- 
+
  AC_MSG_CHECKING(LDLIBRARY)
- 
+
 +AC_SUBST(PYC_BUILD)
 +
 +AC_ARG_ENABLE(pyc-build,
@@ -51,7 +51,7 @@ index 9620067..a76b544 100644
  # MacOSX framework builds need more magic. LDLIBRARY is the dynamic
  # library that we build, but we do not want to link against it (we
  # will find it with a -framework option). For this reason there is an
--- 
+--
 2.11.0
 
 
@@ -71,15 +71,15 @@ index a76b544..5f87c4d 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -3939,7 +3939,7 @@ fi
- 
+
  AC_MSG_RESULT($ac_cv_buggy_getaddrinfo)
- 
+
 -if test $have_getaddrinfo = no || test "$ac_cv_buggy_getaddrinfo" = yes
 +if test $have_getaddrinfo = no || test "$cross_compiling" != "yes" -a "$ac_cv_buggy_getaddrinfo" = yes
  then
  	if test $ipv6 = yes
  	then
--- 
+--
 2.11.0
 
 
@@ -136,10 +136,10 @@ index b38bd79..4ce917a 100644
 @@ -190,6 +190,8 @@ FILEMODE=	644
  # configure script arguments
  CONFIG_ARGS=	@CONFIG_ARGS@
- 
+
 +# disabled extensions
 +DISABLED_EXTENSIONS=	@DISABLED_EXTENSIONS@
- 
+
  # Subdirectories with code
  SRCDIRS= 	@SRCDIRS@
 @@ -575,6 +577,7 @@ sharedmods: $(BUILDPYTHON) pybuilddir.txt Modules/_math.o
@@ -148,8 +148,8 @@ index b38bd79..4ce917a 100644
  		_TCLTK_INCLUDES='$(TCLTK_INCLUDES)' _TCLTK_LIBS='$(TCLTK_LIBS)' \
 +		DISABLED_EXTENSIONS="$(DISABLED_EXTENSIONS)" \
  		$(PYTHON_FOR_BUILD) $(srcdir)/setup.py $$quiet build
- 
- 
+
+
 @@ -1436,7 +1439,8 @@ libainstall:	@DEF_MAKE_RULE@ python-config
  # Install the dynamically loadable modules
  # This goes into $(exec_prefix)
@@ -165,9 +165,9 @@ index 5f87c4d..d5ee2ae 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -2810,6 +2810,8 @@ LIBS="$withval $LIBS"
- 
+
  PKG_PROG_PKG_CONFIG
- 
+
 +AC_SUBST(DISABLED_EXTENSIONS)
 +
  # Check for use of the system expat library
@@ -179,7 +179,7 @@ index fe47797..86643ae 100644
 +++ b/setup.py
 @@ -43,7 +43,11 @@ host_platform = get_platform()
  COMPILED_WITH_PYDEBUG = ('--with-pydebug' in sysconfig.get_config_var("CONFIG_ARGS"))
- 
+
  # This global variable is used to hold the list of modules to be disabled.
 -disabled_module_list = []
 +try:
@@ -187,10 +187,10 @@ index fe47797..86643ae 100644
 +except KeyError:
 +    disabled_module_list = list()
 +
- 
+
  def add_dir_to_list(dirlist, dir):
      """Add the directory 'dir' to the list 'dirlist' (after any relative
--- 
+--
 2.11.0
 
 
@@ -238,7 +238,7 @@ index 2bcd1dd..422c13f 100644
 +++ b/Lib/distutils/sysconfig.py
 @@ -17,10 +17,17 @@ import sys
  from .errors import DistutilsPlatformError
- 
+
  # These are needed in a couple of spots, so just compute them once.
 -PREFIX = os.path.normpath(sys.prefix)
 -EXEC_PREFIX = os.path.normpath(sys.exec_prefix)
@@ -255,10 +255,10 @@ index 2bcd1dd..422c13f 100644
 +    EXEC_PREFIX = os.path.normpath(sys.exec_prefix)
 +    BASE_PREFIX = os.path.normpath(sys.base_prefix)
 +    BASE_EXEC_PREFIX = os.path.normpath(sys.base_exec_prefix)
- 
+
  # Path to the base directory of the project. On Windows the binary may
  # live in project/PCBuild/win32 or project/PCBuild/amd64.
--- 
+--
 2.11.0
 
 
@@ -290,7 +290,7 @@ index 86643ae..cd00fbd 100644
                                     extra_link_args=readline_extra_link_args,
                                     libraries=readline_libs) )
          else:
--- 
+--
 2.11.0
 
 
@@ -325,10 +325,10 @@ index cd00fbd..c956fa0 100644
          if cross_compiling:
              self.add_gcc_paths()
 -        self.add_multiarch_paths()
- 
+
          # Add paths specified in the environment variables LDFLAGS and
          # CPPFLAGS for header and library files.
--- 
+--
 2.11.0
 
 
@@ -356,10 +356,10 @@ index c956fa0..b3add2b 100644
              print_three_column(failed)
              print()
 +            sys.exit(1)
- 
+
          if self.failed_on_import:
              failed = self.failed_on_import[:]
--- 
+--
 2.11.0
 
 
@@ -385,15 +385,15 @@ index b78d33e..58b0444 100644
 +++ b/Modules/termios.c
 @@ -9,7 +9,9 @@
  #endif
- 
+
  #include <termios.h>
 +#include <linux/serial.h>
  #include <sys/ioctl.h>
 +#undef TIOCTTYGSTRUCT
- 
+
  /* HP-UX requires that this be included to pick up MDCD, MCTS, MDSR,
   * MDTR, MRI, and MRTS (appearantly used internally by some things
--- 
+--
 2.11.0
 
 
@@ -423,76 +423,14 @@ index ccc70e6..d6d5419 100644
 @@ -91,7 +91,7 @@ class build_scripts(Command):
                      adjust = True
                      post_interp = match.group(1) or b''
- 
+
 -            if adjust:
 +            if adjust and not '_python_sysroot' in os.environ:
                  log.info("copying and adjusting %s -> %s", script,
                           self.build_dir)
                  updated_files.append(outfile)
--- 
+--
 2.11.0
-
-
-From a7166d6e3eed0062b096c0a34e06c96a735d789c Mon Sep 17 00:00:00 2001
-From: Peter Korsgaard <peter@korsgaard.com>
-Date: Thu, 20 Nov 2014 13:24:59 +0100
-Subject: [PATCH 10/29] Misc/python-config.sh.in: ensure sed invocations only
- match beginning of strings
-
-The build/real prefix handling using sed breaks if build != real and the
-standard include / lib directories are used ($prefix/include and $prefix/lib).
-
-E.G.
-
-prefix_build="/usr", libdir="$prefix/lib", includedir="$prefix/include".
-
-If this gets installed with make DESTDIR="/foo" install, then we end up with
-prefix_real = prefix = "/foo/usr" as expected, but
-includedir="/foo/foo/usr/include" and libdir="/foo/foo/usr/lib" because of
-the double sed invocation (prefix is already expanded).  Work around it by
-ensuring we only match the beginning of the string.
-
-Submitted upstream: http://bugs.python.org/issue22907
-
-Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
----
- Misc/python-config.sh.in | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/Misc/python-config.sh.in b/Misc/python-config.sh.in
-index 30c6927..f905a71 100644
---- a/Misc/python-config.sh.in
-+++ b/Misc/python-config.sh.in
-@@ -29,12 +29,12 @@ prefix_real=$(installed_prefix "$0")
- 
- # Use sed to fix paths from their built-to locations to their installed-to
- # locations.
--prefix=$(echo "$prefix_build" | sed "s#$prefix_build#$prefix_real#")
-+prefix=$(echo "$prefix_build" | sed "s#^$prefix_build#$prefix_real#")
- exec_prefix_build="@exec_prefix@"
--exec_prefix=$(echo "$exec_prefix_build" | sed "s#$exec_prefix_build#$prefix_real#")
--includedir=$(echo "@includedir@" | sed "s#$prefix_build#$prefix_real#")
--libdir=$(echo "@libdir@" | sed "s#$prefix_build#$prefix_real#")
--CFLAGS=$(echo "@CFLAGS@" | sed "s#$prefix_build#$prefix_real#")
-+exec_prefix=$(echo "$exec_prefix_build" | sed "s#^$exec_prefix_build#$prefix_real#")
-+includedir=$(echo "@includedir@" | sed "s#^$prefix_build#$prefix_real#")
-+libdir=$(echo "@libdir@" | sed "s#^$prefix_build#$prefix_real#")
-+CFLAGS=$(echo "@CFLAGS@" | sed "s#^$prefix_build#$prefix_real#")
- VERSION="@VERSION@"
- LIBM="@LIBM@"
- LIBC="@LIBC@"
-@@ -48,7 +48,7 @@ OPT="@OPT@"
- PY_ENABLE_SHARED="@PY_ENABLE_SHARED@"
- LDVERSION="@LDVERSION@"
- LIBDEST=${prefix}/lib/python${VERSION}
--LIBPL=$(echo "@LIBPL@" | sed "s#$prefix_build#$prefix_real#")
-+LIBPL=$(echo "@LIBPL@" | sed "s#^$prefix_build#$prefix_real#")
- SO="@EXT_SUFFIX@"
- PYTHONFRAMEWORK="@PYTHONFRAMEWORK@"
- INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
--- 
-2.11.0
-
 
 From 2d68f738170735e5fb01684f532850da536e1abb Mon Sep 17 00:00:00 2001
 From: Samuel Cabrero <samuelcabrero@gmail.com>
@@ -528,7 +466,7 @@ index b3add2b..29bfd17 100644
          is_gcc = False
          in_incdirs = False
          inc_dirs = []
--- 
+--
 2.11.0
 
 
@@ -565,7 +503,7 @@ index 9feec50..3550013 100644
 @@ -275,8 +275,6 @@ def cache_from_source(path, debug_override=None, *, optimization=None):
      a True value is the same as setting 'optimization' to the empty string
      while a False value is equivalent to setting 'optimization' to '1'.
- 
+
 -    If sys.implementation.cache_tag is None then NotImplementedError is raised.
 -
      """
@@ -589,11 +527,11 @@ index 9feec50..3550013 100644
          almost_filename = '{}.{}{}'.format(almost_filename, _OPT, optimization)
 -    return _path_join(head, _PYCACHE, almost_filename + BYTECODE_SUFFIXES[0])
 +    return _path_join(head, almost_filename + BYTECODE_SUFFIXES[0])
- 
- 
+
+
  def source_from_cache(path):
      """Given the path to a .pyc. file, return the path to its .py file.
- 
+
      The .pyc file does not need to exist; this simply returns the path to
 -    the .py file calculated to correspond to the .pyc file.  If path does
 -    not conform to PEP 3147/488 format, ValueError will be raised. If
@@ -626,9 +564,9 @@ index 9feec50..3550013 100644
 +    head, filename = _path_split(path)
 +    base_filename = filename.partition('.')[0]
      return _path_join(head, base_filename + SOURCE_SUFFIXES[0])
- 
- 
--- 
+
+
+--
 2.11.0
 
 
@@ -654,7 +592,7 @@ index 4ce917a..4110fff 100644
 --- a/Makefile.pre.in
 +++ b/Makefile.pre.in
 @@ -1194,8 +1194,28 @@ maninstall:	altmaninstall
- 
+
  # Install the library
  XMLLIBSUBDIRS=  xml xml/dom xml/etree xml/parsers xml/sax
 -LIBSUBDIRS=	tkinter tkinter/test tkinter/test/test_tkinter \
@@ -735,16 +673,16 @@ index d5ee2ae..f924937 100644
 @@ -3112,6 +3112,11 @@ if test "$posix_threads" = "yes"; then
        AC_CHECK_FUNCS(pthread_atfork)
  fi
- 
+
 +AC_SUBST(TEST_MODULES)
 +
 +AC_ARG_ENABLE(test-modules,
 +	AS_HELP_STRING([--disable-test-modules], [disable test modules]),
 +	[ TEST_MODULES="${enableval}" ], [ TEST_MODULES=yes ])
- 
+
  # Check for enable-ipv6
  AH_TEMPLATE(ENABLE_IPV6, [Define if --enable-ipv6 is specified])
--- 
+--
 2.11.0
 
 
@@ -786,13 +724,13 @@ index 4110fff..badb2af 100644
  		venv venv/scripts venv/scripts/common venv/scripts/posix \
 -		curses pydoc_data
 +		curses
- 
+
  TESTSUBDIRS=	tkinter/test tkinter/test/test_tkinter \
  		tkinter/test/test_ttk test \
 @@ -1269,6 +1271,10 @@ ifeq (@TEST_MODULES@,yes)
  LIBSUBDIRS += $(TESTSUBDIRS)
  endif
- 
+
 +ifeq (@PYDOC@,yes)
 +LIBSUBDIRS += pydoc_data
 +endif
@@ -807,7 +745,7 @@ index f924937..1621fa1 100644
 @@ -3112,6 +3112,12 @@ if test "$posix_threads" = "yes"; then
        AC_CHECK_FUNCS(pthread_atfork)
  fi
- 
+
 +AC_SUBST(PYDOC)
 +
 +AC_ARG_ENABLE(pydoc,
@@ -815,7 +753,7 @@ index f924937..1621fa1 100644
 +	[ PYDOC="${enableval}" ], [ PYDOC=yes ])
 +
  AC_SUBST(TEST_MODULES)
- 
+
  AC_ARG_ENABLE(test-modules,
 diff --git a/setup.py b/setup.py
 index 29bfd17..94dd337 100644
@@ -842,9 +780,9 @@ index 29bfd17..94dd337 100644
 -                     "Tools/scripts/2to3", "Tools/scripts/pyvenv"]
 +          scripts = scripts
          )
- 
+
  # --install-platlib
--- 
+--
 2.11.0
 
 
@@ -901,7 +839,7 @@ index badb2af..931cc3e 100644
 @@ -1267,6 +1265,14 @@ TESTSUBDIRS=	tkinter/test tkinter/test/test_tkinter \
  		test/test_tools test/test_warnings test/test_warnings/data \
  		unittest/test unittest/test/testmock
- 
+
 +ifeq (@LIB2TO3@,yes)
 +LIBSUBDIRS += lib2to3 lib2to3/fixes lib2to3/pgen2
 +TESTSUBDIRS += lib2to3/tests			\
@@ -923,7 +861,7 @@ index badb2af..931cc3e 100644
  	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
  		$(PYTHON_FOR_BUILD) -m lib2to3.pgen2.driver $(DESTDIR)$(LIBDEST)/lib2to3/PatternGrammar.txt
 +endif
- 
+
  python-config: $(srcdir)/Misc/python-config.in Misc/python-config.sh
  	# Substitution happens here, as the completely-expanded BINDIR
 diff --git a/configure.ac b/configure.ac
@@ -933,7 +871,7 @@ index 1621fa1..13b2edf 100644
 @@ -3124,6 +3124,12 @@ AC_ARG_ENABLE(test-modules,
  	AS_HELP_STRING([--disable-test-modules], [disable test modules]),
  	[ TEST_MODULES="${enableval}" ], [ TEST_MODULES=yes ])
- 
+
 +AC_SUBST(LIB2TO3)
 +
 +AC_ARG_ENABLE(lib2to3,
@@ -950,7 +888,7 @@ index 94dd337..76429e1 100644
 @@ -2282,10 +2282,11 @@ def main():
      import warnings
      warnings.filterwarnings("ignore",category=DeprecationWarning)
- 
+
 -    scripts = ['Tools/scripts/idle3', 'Tools/scripts/2to3',
 -               'Lib/smtpd.py']
 +    scripts = ['Tools/scripts/idle3', 'Lib/smtpd.py']
@@ -958,10 +896,10 @@ index 94dd337..76429e1 100644
          scripts += [ 'Tools/scripts/pydoc3' ]
 +    if not '--disable-lib2to3' in sysconfig.get_config_var("CONFIG_ARGS"):
 +        scripts += [ 'Tools/scripts/2to3' ]
- 
+
      setup(# PyPI Metadata (PEP 301)
            name = "Python",
--- 
+--
 2.11.0
 
 
@@ -1002,7 +940,7 @@ index 931cc3e..a1ce071 100644
 @@ -1273,6 +1271,11 @@ TESTSUBDIRS += lib2to3/tests			\
  	lib2to3/tests/data/fixers/myfixes
  endif
- 
+
 +ifeq (@SQLITE3@,yes)
 +LIBSUBDIRS += sqlite3
 +TESTSUBDIRS += sqlite3/test
@@ -1018,7 +956,7 @@ index 13b2edf..d7582cf 100644
 @@ -3112,6 +3112,15 @@ if test "$posix_threads" = "yes"; then
        AC_CHECK_FUNCS(pthread_atfork)
  fi
- 
+
 +AC_SUBST(SQLITE3)
 +AC_ARG_ENABLE(sqlite3,
 +	AS_HELP_STRING([--disable-sqlite3], [disable sqlite3]),
@@ -1029,9 +967,9 @@ index 13b2edf..d7582cf 100644
 +fi
 +
  AC_SUBST(PYDOC)
- 
+
  AC_ARG_ENABLE(pydoc,
--- 
+--
 2.11.0
 
 
@@ -1056,7 +994,7 @@ index a1ce071..dc1e917 100644
 @@ -1199,7 +1199,7 @@ maninstall:	altmaninstall
  # Install the library
  XMLLIBSUBDIRS=  xml xml/dom xml/etree xml/parsers xml/sax
- 
+
 -LIBSUBDIRS=	tkinter site-packages \
 +LIBSUBDIRS=	site-packages \
  		asyncio \
@@ -1065,7 +1003,7 @@ index a1ce071..dc1e917 100644
 @@ -1216,8 +1216,7 @@ LIBSUBDIRS=	tkinter site-packages \
  		venv venv/scripts venv/scripts/common venv/scripts/posix \
  		curses
- 
+
 -TESTSUBDIRS=	tkinter/test tkinter/test/test_tkinter \
 -		tkinter/test/test_ttk test \
 +TESTSUBDIRS=	test \
@@ -1075,7 +1013,7 @@ index a1ce071..dc1e917 100644
 @@ -1263,6 +1262,12 @@ TESTSUBDIRS=	tkinter/test tkinter/test/test_tkinter \
  		test/test_tools test/test_warnings test/test_warnings/data \
  		unittest/test unittest/test/testmock
- 
+
 +ifeq (@TK@,yes)
 +LIBSUBDIRS += tkinter
 +TESTSUBDIRS += tkinter/test tkinter/test/test_tkinter \
@@ -1092,7 +1030,7 @@ index d7582cf..6a56a5b 100644
 @@ -3121,6 +3121,15 @@ if test "$SQLITE3" = "no" ; then
     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} _sqlite3"
  fi
- 
+
 +AC_SUBST(TK)
 +AC_ARG_ENABLE(tk,
 +	AS_HELP_STRING([--disable-tk], [disable tk]),
@@ -1103,9 +1041,9 @@ index d7582cf..6a56a5b 100644
 +fi
 +
  AC_SUBST(PYDOC)
- 
+
  AC_ARG_ENABLE(pydoc,
--- 
+--
 2.11.0
 
 
@@ -1134,13 +1072,13 @@ index dc1e917..6a6bc08 100644
 -		venv venv/scripts venv/scripts/common venv/scripts/posix \
 -		curses
 +		venv venv/scripts venv/scripts/common venv/scripts/posix
- 
+
  TESTSUBDIRS=	test \
  		test/audiodata \
 @@ -1268,6 +1267,10 @@ TESTSUBDIRS += tkinter/test tkinter/test/test_tkinter \
  	tkinter/test/test_ttk
  endif
- 
+
 +ifeq (@CURSES@,yes)
 +LIBSUBDIRS += curses
 +endif
@@ -1155,7 +1093,7 @@ index 6a56a5b..5896b39 100644
 @@ -3130,6 +3130,15 @@ if test "$TK" = "no"; then
     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} _tkinter"
  fi
- 
+
 +AC_SUBST(CURSES)
 +AC_ARG_ENABLE(curses,
 +	AS_HELP_STRING([--disable-curses], [disable curses]),
@@ -1166,9 +1104,9 @@ index 6a56a5b..5896b39 100644
 +fi
 +
  AC_SUBST(PYDOC)
- 
+
  AC_ARG_ENABLE(pydoc,
--- 
+--
 2.11.0
 
 
@@ -1209,7 +1147,7 @@ index 6a6bc08..dc4b92b 100644
 @@ -1271,6 +1271,10 @@ ifeq (@CURSES@,yes)
  LIBSUBDIRS += curses
  endif
- 
+
 +ifeq (@EXPAT@,yes)
 +LIBSUBDIRS += $(XMLLIBSUBDIRS)
 +endif
@@ -1223,7 +1161,7 @@ index 5896b39..6f21482 100644
 +++ b/configure.ac
 @@ -2813,13 +2813,21 @@ PKG_PROG_PKG_CONFIG
  AC_SUBST(DISABLED_EXTENSIONS)
- 
+
  # Check for use of the system expat library
 -AC_MSG_CHECKING(for --with-system-expat)
 -AC_ARG_WITH(system_expat,
@@ -1234,7 +1172,7 @@ index 5896b39..6f21482 100644
              [],
 -            [with_system_expat="no"])
 +            [with_expat="builtin"])
- 
+
 -AC_MSG_RESULT($with_system_expat)
 +AC_MSG_RESULT($with_expat)
 +
@@ -1245,7 +1183,7 @@ index 5896b39..6f21482 100644
 +   EXPAT=no
 +fi
 +AC_SUBST(EXPAT)
- 
+
  # Check for use of the system libffi library
  AC_MSG_CHECKING(for --with-system-ffi)
 diff --git a/setup.py b/setup.py
@@ -1261,7 +1199,7 @@ index 76429e1..38aa5e6 100644
              expat_inc = []
              define_macros = []
              expat_lib = ['expat']
--- 
+--
 2.11.0
 
 
@@ -1282,7 +1220,7 @@ index 6f21482..c7742fa 100644
 @@ -3129,6 +3129,12 @@ if test "$SQLITE3" = "no" ; then
     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} _sqlite3"
  fi
- 
+
 +AC_ARG_ENABLE(codecs-cjk,
 +	AS_HELP_STRING([--disable-codecs-cjk], [disable CJK codecs]),
 +	[ if test "$enableval" = "no"; then
@@ -1292,7 +1230,7 @@ index 6f21482..c7742fa 100644
  AC_SUBST(TK)
  AC_ARG_ENABLE(tk,
  	AS_HELP_STRING([--disable-tk], [disable tk]),
--- 
+--
 2.11.0
 
 
@@ -1316,7 +1254,7 @@ index c7742fa..42a871b 100644
 @@ -3135,6 +3135,12 @@ AC_ARG_ENABLE(codecs-cjk,
  		DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} _codecs_kr _codecs_jp _codecs_cn _codecs_tw _codecs_hk _codecs_iso2022"
  	fi])
- 
+
 +AC_ARG_ENABLE(nis,
 +	AS_HELP_STRING([--disable-nis], [disable NIS]),
 +	[ if test "$enableval" = "no"; then
@@ -1326,7 +1264,7 @@ index c7742fa..42a871b 100644
  AC_SUBST(TK)
  AC_ARG_ENABLE(tk,
  	AS_HELP_STRING([--disable-tk], [disable tk]),
--- 
+--
 2.11.0
 
 
@@ -1347,7 +1285,7 @@ index 42a871b..1d610e1 100644
 @@ -3141,6 +3141,12 @@ AC_ARG_ENABLE(nis,
      	     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} nis"
    	  fi])
- 
+
 +AC_ARG_ENABLE(unicodedata,
 +	AS_HELP_STRING([--disable-unicodedata], [disable unicodedata]),
 +	[ if test "$enableval" = "no"; then
@@ -1357,7 +1295,7 @@ index 42a871b..1d610e1 100644
  AC_SUBST(TK)
  AC_ARG_ENABLE(tk,
  	AS_HELP_STRING([--disable-tk], [disable tk]),
--- 
+--
 2.11.0
 
 
@@ -1403,7 +1341,7 @@ index dc4b92b..3e43066 100644
 @@ -1275,6 +1276,10 @@ ifeq (@EXPAT@,yes)
  LIBSUBDIRS += $(XMLLIBSUBDIRS)
  endif
- 
+
 +ifeq (@IDLE@,yes)
 +LIBSUBDIRS += idlelib idlelib/Icons
 +endif
@@ -1418,7 +1356,7 @@ index 1d610e1..2699e7c 100644
 @@ -3183,6 +3183,12 @@ AC_ARG_ENABLE(lib2to3,
  	AS_HELP_STRING([--disable-lib2to3], [disable lib2to3]),
  	[ LIB2TO3="${enableval}" ], [ LIB2TO3=yes ])
- 
+
 +AC_SUBST(IDLE)
 +
 +AC_ARG_ENABLE(idle3,
@@ -1435,7 +1373,7 @@ index 38aa5e6..d642825 100644
 @@ -2282,11 +2282,13 @@ def main():
      import warnings
      warnings.filterwarnings("ignore",category=DeprecationWarning)
- 
+
 -    scripts = ['Tools/scripts/idle3', 'Lib/smtpd.py']
 +    scripts = [ 'Lib/smtpd.py']
      if not '--disable-pydoc' in sysconfig.get_config_var("CONFIG_ARGS"):
@@ -1444,10 +1382,10 @@ index 38aa5e6..d642825 100644
          scripts += [ 'Tools/scripts/2to3' ]
 +    if not '--disable-idle3' in sysconfig.get_config_var("CONFIG_ARGS"):
 +        scripts += [ 'Tools/scripts/idle3' ]
- 
+
      setup(# PyPI Metadata (PEP 301)
            name = "Python",
--- 
+--
 2.11.0
 
 
@@ -1473,7 +1411,7 @@ index 2699e7c..e2c3b6f 100644
 +++ b/configure.ac
 @@ -2862,13 +2862,20 @@ AC_SUBST(LIBFFI_INCLUDEDIR)
  AC_MSG_RESULT($with_system_ffi)
- 
+
  # Check for use of the system libmpdec library
 -AC_MSG_CHECKING(for --with-system-libmpdec)
 -AC_ARG_WITH(system_libmpdec,
@@ -1484,7 +1422,7 @@ index 2699e7c..e2c3b6f 100644
              [],
 -            [with_system_libmpdec="no"])
 +            [with_libmpdec="builtin"])
- 
+
 -AC_MSG_RESULT($with_system_libmpdec)
 +AC_MSG_RESULT($with_libmpdec)
 +if test "$with_libmpdec" != "none"; then
@@ -1494,7 +1432,7 @@ index 2699e7c..e2c3b6f 100644
 +   MPDEC=no
 +fi
 +AC_SUBST(MPDEC)
- 
+
  # Check for support for loadable sqlite extensions
  AC_MSG_CHECKING(for --enable-loadable-sqlite-extensions)
 diff --git a/setup.py b/setup.py
@@ -1510,7 +1448,7 @@ index d642825..5b98255 100644
              include_dirs = []
              libraries = [':libmpdec.so.2']
              sources = ['_decimal/_decimal.c']
--- 
+--
 2.11.0
 
 
@@ -1531,7 +1469,7 @@ index e2c3b6f..8e3dded 100644
 @@ -2877,6 +2877,12 @@ else
  fi
  AC_SUBST(MPDEC)
- 
+
 +AC_ARG_ENABLE(ossaudiodev,
 +	AS_HELP_STRING([--disable-ossaudiodev], [disable OSSAUDIODEV]),
 +	[ if test "$enableval" = "no"; then
@@ -1541,7 +1479,7 @@ index e2c3b6f..8e3dded 100644
  # Check for support for loadable sqlite extensions
  AC_MSG_CHECKING(for --enable-loadable-sqlite-extensions)
  AC_ARG_ENABLE(loadable-sqlite-extensions,
--- 
+--
 2.11.0
 
 
@@ -1565,23 +1503,23 @@ index 3e43066..6aa0bd3 100644
 @@ -688,10 +688,15 @@ Programs/_testembed: Programs/_testembed.o $(LIBRARY) $(LDLIBRARY) $(PY3LIBRARY)
  ############################################################################
  # Importlib
- 
+
 +ifeq (@FREEZE_IMPORTLIB_FOR_BUILD@,)
  Programs/_freeze_importlib.o: Programs/_freeze_importlib.c Makefile
- 
+
  Programs/_freeze_importlib: Programs/_freeze_importlib.o $(LIBRARY_OBJS_OMIT_FROZEN)
  	$(LINKCC) $(PY_LDFLAGS) -o $@ Programs/_freeze_importlib.o $(LIBRARY_OBJS_OMIT_FROZEN) $(LIBS) $(MODLIBS) $(SYSLIBS) $(LDLAST)
 +else
 +Programs/_freeze_importlib: @FREEZE_IMPORTLIB_FOR_BUILD@
 +	cp $^ $@
 +endif
- 
+
  .PHONY: regen-importlib
  regen-importlib: Programs/_freeze_importlib
 @@ -769,8 +774,13 @@ Python/sysmodule.o: $(srcdir)/Python/sysmodule.c Makefile
- 
+
  $(IO_OBJS): $(IO_H)
- 
+
 +ifeq (@PGEN_FOR_BUILD@,)
  $(PGEN): $(PGENOBJS)
  		$(CC) $(OPT) $(PY_LDFLAGS) $(PGENOBJS) $(LIBS) -o $(PGEN)
@@ -1589,7 +1527,7 @@ index 3e43066..6aa0bd3 100644
 +$(PGEN): @PGEN_FOR_BUILD@
 +		cp $^ $@
 +endif
- 
+
  .PHONY: regen-grammar
  regen-grammar: $(PGEN)
 diff --git a/configure.ac b/configure.ac
@@ -1599,14 +1537,14 @@ index 8e3dded..1c7a3b5 100644
 @@ -82,6 +82,9 @@ else
  fi
  AC_SUBST(PYTHON_FOR_BUILD)
- 
+
 +AC_SUBST(PGEN_FOR_BUILD)
 +AC_SUBST(FREEZE_IMPORTLIB_FOR_BUILD)
 +
  dnl Ensure that if prefix is specified, it does not end in a slash. If
  dnl it does, we get path names containing '//' which is both ugly and
  dnl can cause trouble.
--- 
+--
 2.11.0
 
 
@@ -1627,7 +1565,7 @@ index 1c7a3b5..534a903 100644
 @@ -3163,6 +3163,12 @@ AC_ARG_ENABLE(unicodedata,
      	     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} unicodedata"
    	  fi])
- 
+
 +AC_ARG_ENABLE(openssl,
 +	AS_HELP_STRING([--disable-openssl], [disable openssl support]),
 +	[ if test "$enableval" = "no"; then
@@ -1637,7 +1575,7 @@ index 1c7a3b5..534a903 100644
  AC_SUBST(TK)
  AC_ARG_ENABLE(tk,
  	AS_HELP_STRING([--disable-tk], [disable tk]),
--- 
+--
 2.11.0
 
 
@@ -1658,7 +1596,7 @@ index 534a903..5df3b10 100644
 @@ -3169,6 +3169,12 @@ AC_ARG_ENABLE(openssl,
  	     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} ssl _ssl _hashlib"
  	  fi])
- 
+
 +AC_ARG_ENABLE(readline,
 +	AS_HELP_STRING([--disable-readline], [disable readline]),
 +	[ if test "$enableval" = "no"; then
@@ -1668,7 +1606,7 @@ index 534a903..5df3b10 100644
  AC_SUBST(TK)
  AC_ARG_ENABLE(tk,
  	AS_HELP_STRING([--disable-tk], [disable tk]),
--- 
+--
 2.11.0
 
 
@@ -1689,7 +1627,7 @@ index 5df3b10..43290e3 100644
 @@ -3175,6 +3175,24 @@ AC_ARG_ENABLE(readline,
  	     DISABLED_EXTENSIONS="${DISABLED_EXTENSIONS} readline"
  	  fi])
- 
+
 +AC_ARG_ENABLE(bzip2,
 +	AS_HELP_STRING([--disable-bzip2], [disable bzip2]),
 +	[ if test "$enableval" = "no"; then
@@ -1711,6 +1649,5 @@ index 5df3b10..43290e3 100644
  AC_SUBST(TK)
  AC_ARG_ENABLE(tk,
  	AS_HELP_STRING([--disable-tk], [disable tk]),
--- 
+--
 2.11.0
-
