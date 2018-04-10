@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="soxr"
-PKG_VERSION="0.1.3"
-PKG_SHA256="b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889"
+PKG_VERSION="0.1.2"
+PKG_SHA256="54e6f434f1c491388cd92f0e3c47f1ade082cc24327bdc43762f7d1eefe0c275"
 PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://sourceforge.net/p/soxr/wiki/Home/"
@@ -30,7 +30,7 @@ PKG_SHORTDESC="soxr: a library which performs one-dimensional sample-rate conver
 PKG_LONGDESC="The SoX Resampler library performs one-dimensional sample-rate conversion. it may be used, for example, to resample PCM-encoded audio."
 PKG_BUILD_FLAGS="+pic"
 
-PKG_CMAKE_OPTS_TARGET="-DCMAKE_BUILD_TYPE=Release \
+PKG_CMAKE_OPTS_TARGET="-DHAVE_WORDS_BIGENDIAN_EXITCODE=1 \
                        -DBUILD_TESTS=0 \
                        -DBUILD_EXAMPLES=1 \
                        -DBUILD_SHARED_LIBS=OFF"
