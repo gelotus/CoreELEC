@@ -30,7 +30,7 @@ PKG_SHORTDESC="soxr: a library which performs one-dimensional sample-rate conver
 PKG_LONGDESC="The SoX Resampler library performs one-dimensional sample-rate conversion. it may be used, for example, to resample PCM-encoded audio."
 PKG_BUILD_FLAGS="+pic"
 
-PKG_CMAKE_OPTS_TARGET="-DHAVE_WORDS_BIGENDIAN_EXITCODE=1 \
+PKG_CMAKE_OPTS_TARGET="-DCMAKE_BUILD_TYPE=Release \
                        -DBUILD_TESTS=0 \
                        -DBUILD_EXAMPLES=1 \
                        -DBUILD_SHARED_LIBS=OFF"
