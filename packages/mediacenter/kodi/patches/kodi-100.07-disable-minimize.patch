@@ -11,14 +11,13 @@ diff --git a/xbmc/Application.cpp b/xbmc/Application.cpp
 index 95ae98c..9aca1e3 100644
 --- a/xbmc/Application.cpp
 +++ b/xbmc/Application.cpp
-@@ -5044,7 +5044,6 @@ bool CApplication::SwitchToFullScreen(bool force /* = false */)
- 
+@@ -4797,7 +4797,6 @@ }
+
  void CApplication::Minimize()
  {
--  CServiceBroker::GetWinSystem().Minimize();
+-  CServiceBroker::GetWinSystem()->Minimize();
  }
- 
- PLAYERCOREID CApplication::GetCurrentPlayer()
--- 
-2.5.0
 
+ std::string CApplication::GetCurrentPlayer()
+--
+2.5.0
