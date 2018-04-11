@@ -1,13 +1,157 @@
+<<<<<<< HEAD
 diff --git a/addons/skin.estuary/xml/Settings.xml b/addons/skin.estuary/xml/Settings.xml
 index 18ad102..ef560b6 100644
 --- a/addons/skin.estuary/xml/Settings.xml
 +++ b/addons/skin.estuary/xml/Settings.xml
 @@ -112,7 +112,7 @@
+=======
+From e6e3c1e4085f804052f619b60c790761d20e3553 Mon Sep 17 00:00:00 2001
+From: Adam Green <greena88@gmail.com>
+Date: Sat, 7 Apr 2018 13:26:24 +0100
+Subject: [PATCH] x
+
+---
+ addons/skin.estuary/media/icons/settings/coreelec.png | Bin 0 -> 6151 bytes
+ addons/skin.estuary/xml/Settings.xml                  |   4 ++--
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 addons/skin.estuary/media/icons/settings/coreelec.png
+
+diff --git a/addons/skin.estuary/media/icons/settings/coreelec.png b/addons/skin.estuary/media/icons/settings/coreelec.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..0fcd2dd9b512933d4ecb2cab34158378400efc6f
+GIT binary patch
+literal 6151
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/addons/skin.estuary/xml/Settings.xml b/addons/skin.estuary/xml/Settings.xml
+index 18ad102..4b008b6 100644
+--- a/addons/skin.estuary/xml/Settings.xml
++++ b/addons/skin.estuary/xml/Settings.xml
+@@ -112,9 +112,9 @@
+>>>>>>> rebrand
  						<icon>icons/settings/system.png</icon>
  					</item>
  					<item>
 -						<label>LibreELEC</label>
 +						<label>CoreELEC</label>
  						<onclick>RunAddon(service.libreelec.settings)</onclick>
+<<<<<<< HEAD
  						<icon>icons/settings/libreelec.png</icon>
  						<visible>System.HasAddon(service.libreelec.settings)</visible>
+=======
+-						<icon>icons/settings/libreelec.png</icon>
++						<icon>icons/settings/coreelec.png</icon>
+ 						<visible>System.HasAddon(service.libreelec.settings)</visible>
+ 					</item>
+ 				</content>
+-- 
+2.7.4
+
+>>>>>>> rebrand
