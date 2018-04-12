@@ -1,53 +1,34 @@
-From a8893b75b9edd54ec5d58b7cfc937da2be1b5121 Mon Sep 17 00:00:00 2001
-From: MilhouseVH <milhouseVH.github@nmacleod.com>
-Date: Thu, 5 Apr 2018 11:43:28 +0100
-Subject: [PATCH] [linux] allow using alsa and pulse together
-
----
- xbmc/windowing/X11/WinSystemX11GLContext.cpp | 27 ++-------------------------
- xbmc/windowing/amlogic/WinSystemAmlogic.cpp  |  2 ++
- xbmc/windowing/gbm/WinSystemGbm.cpp          | 27 ++-------------------------
- xbmc/windowing/rpi/WinSystemRpi.cpp          |  4 ++++
- 4 files changed, 10 insertions(+), 50 deletions(-)
-
-diff --git a/xbmc/windowing/X11/WinSystemX11GLContext.cpp b/xbmc/windowing/X11/WinSystemX11GLContext.cpp
-index 62d5707..96893b3 100644
---- a/xbmc/windowing/X11/WinSystemX11GLContext.cpp
-+++ b/xbmc/windowing/X11/WinSystemX11GLContext.cpp
-@@ -51,31 +51,8 @@ std::unique_ptr<CWinSystemBase> CWinSystemBase::CreateWinSystem()
-
- CWinSystemX11GLContext::CWinSystemX11GLContext()
- {
--  std::string envSink;
--  if (getenv("AE_SINK"))
--    envSink = getenv("AE_SINK");
+--- a/xbmc/windowing/X11/WinSystemX11GLContext.cpp	2018-04-11 19:57:17.000000000 +0200
++++ b/xbmc/windowing/X11/WinSystemX11GLContext.cpp	2018-04-12 22:20:00.856481415 +0200
+@@ -55,28 +55,8 @@
+   std::string envSink;
+   if (getenv("AE_SINK"))
+     envSink = getenv("AE_SINK");
 -  if (StringUtils::EqualsNoCase(envSink, "ALSA"))
 -  {
--    X11::ALSARegister();
+-    OPTIONALS::ALSARegister();
 -  }
 -  else if (StringUtils::EqualsNoCase(envSink, "PULSE"))
 -  {
--    X11::PulseAudioRegister();
+-    OPTIONALS::PulseAudioRegister();
 -  }
 -  else if (StringUtils::EqualsNoCase(envSink, "SNDIO"))
 -  {
--    X11::SndioRegister();
+-    OPTIONALS::SndioRegister();
 -  }
 -  else
 -  {
--    if (!X11::PulseAudioRegister())
+-    if (!OPTIONALS::PulseAudioRegister())
 -    {
--      if (!X11::ALSARegister())
+-      if (!OPTIONALS::ALSARegister())
 -      {
--        X11::SndioRegister();
+-        OPTIONALS::SndioRegister();
 -      }
 -    }
 -  }
-+  X11::ALSARegister();
-+  X11::PulseAudioRegister();
++    OPTIONALS::ALSARegister();
++    OPTIONALS::PulseAudioRegister();
  }
-
- CWinSystemX11GLContext::~CWinSystemX11GLContext()
 
  --- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp	2018-04-07 20:00:40.000000000 +0200
  +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp	2018-04-08 00:24:49.347449426 +0200
@@ -68,11 +49,9 @@ index 62d5707..96893b3 100644
    CLinuxPowerSyscall::Register();
  }
 
-diff --git a/xbmc/windowing/gbm/WinSystemGbm.cpp b/xbmc/windowing/gbm/WinSystemGbm.cpp
-index 2786e86..50ce1e0 100644
 --- a/xbmc/windowing/gbm/WinSystemGbm.cpp
 +++ b/xbmc/windowing/gbm/WinSystemGbm.cpp
-@@ -42,31 +42,8 @@ CWinSystemGbm::CWinSystemGbm() :
+@@ -43,31 +43,8 @@
    m_GBM(new CGBMUtils),
    m_delayDispReset(false)
  {
@@ -81,53 +60,51 @@ index 2786e86..50ce1e0 100644
 -    envSink = getenv("AE_SINK");
 -  if (StringUtils::EqualsNoCase(envSink, "ALSA"))
 -  {
--    GBM::ALSARegister();
+-    OPTIONALS::ALSARegister();
 -  }
 -  else if (StringUtils::EqualsNoCase(envSink, "PULSE"))
 -  {
--    GBM::PulseAudioRegister();
+-    OPTIONALS::PulseAudioRegister();
 -  }
 -  else if (StringUtils::EqualsNoCase(envSink, "SNDIO"))
 -  {
--    GBM::SndioRegister();
+-    OPTIONALS::SndioRegister();
 -  }
 -  else
 -  {
--    if (!GBM::PulseAudioRegister())
+-    if (!OPTIONALS::PulseAudioRegister())
 -    {
--      if (!GBM::ALSARegister())
+-      if (!OPTIONALS::ALSARegister())
 -      {
--        GBM::SndioRegister();
+-        OPTIONALS::SndioRegister();
 -      }
 -    }
 -  }
-+  GBM::ALSARegister();
-+  GBM::PulseAudioRegister();
++    OPTIONALS::ALSARegister();
++    OPTIONALS::PulseAudioRegister();
 
    m_winEvents.reset(new CWinEventsLinux());
    CLinuxPowerSyscall::Register();
-diff --git a/xbmc/windowing/rpi/WinSystemRpi.cpp b/xbmc/windowing/rpi/WinSystemRpi.cpp
-index c7b8319..a09dbf0 100644
---- a/xbmc/windowing/rpi/WinSystemRpi.cpp
-+++ b/xbmc/windowing/rpi/WinSystemRpi.cpp
-@@ -34,7 +34,9 @@
- #include "utils/log.h"
- #include "../WinEventsLinux.h"
- #include "cores/AudioEngine/AESinkFactory.h"
-+#include "cores/AudioEngine/Sinks/AESinkALSA.h"
- #include "cores/AudioEngine/Sinks/AESinkPi.h"
-+#include "cores/AudioEngine/Sinks/AESinkPULSE.h"
- #include "platform/linux/powermanagement/LinuxPowerSyscall.h"
 
- #include <EGL/egl.h>
-@@ -56,6 +58,8 @@ CWinSystemRpi::CWinSystemRpi()
-   m_winEvents.reset(new CWinEventsLinux());
-   AE::CAESinkFactory::ClearSinks();
-   CAESinkPi::Register();
-+  CAESinkALSA::Register();
-+  CAESinkPULSE::Register();
-   CLinuxPowerSyscall::Register();
- }
+   diff --git a/xbmc/windowing/rpi/WinSystemRpi.cpp b/xbmc/windowing/rpi/WinSystemRpi.cpp
+   index c7b8319..a09dbf0 100644
+   --- a/xbmc/windowing/rpi/WinSystemRpi.cpp
+   +++ b/xbmc/windowing/rpi/WinSystemRpi.cpp
+   @@ -34,7 +34,9 @@
+    #include "utils/log.h"
+    #include "../WinEventsLinux.h"
+    #include "cores/AudioEngine/AESinkFactory.h"
+   +#include "cores/AudioEngine/Sinks/AESinkALSA.h"
+    #include "cores/AudioEngine/Sinks/AESinkPi.h"
+   +#include "cores/AudioEngine/Sinks/AESinkPULSE.h"
+    #include "platform/linux/powermanagement/LinuxPowerSyscall.h"
 
---
-2.14.1
+    #include <EGL/egl.h>
+   @@ -56,6 +58,8 @@ CWinSystemRpi::CWinSystemRpi()
+      m_winEvents.reset(new CWinEventsLinux());
+      AE::CAESinkFactory::ClearSinks();
+      CAESinkPi::Register();
+   +  CAESinkALSA::Register();
+   +  CAESinkPULSE::Register();
+      CLinuxPowerSyscall::Register();
+    }

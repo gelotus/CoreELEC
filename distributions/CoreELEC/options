@@ -194,7 +194,7 @@
 
 
 # Addon Server Url
-  ADDON_SERVER_URL="https://github.com/CoreELEC/addons/raw/master"
+  ADDON_SERVER_URL="https://github.com/gelotus/addons/raw/master"
 
 # set the addon dirs
   ADDON_PATH="$ADDON_VERSION/$PROJECT/$TARGET_ARCH"
