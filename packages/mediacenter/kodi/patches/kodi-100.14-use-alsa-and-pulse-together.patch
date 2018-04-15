@@ -28,7 +28,7 @@
 -  }
 +    OPTIONALS::ALSARegister();
 +    OPTIONALS::PulseAudioRegister();
- }
+
 
  --- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp	2018-04-07 20:00:40.000000000 +0200
  +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp	2018-04-08 00:24:49.347449426 +0200
