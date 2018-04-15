@@ -18,8 +18,8 @@
 
 PKG_NAME="ffmpeg"
 # Current branch is: release/3.4-kodi
-PKG_VERSION="f96fd5c"
-PKG_SHA256="35ccc07c72b203101030a35b4bb11779365adb7bbf143ef1d68a1f87c781e38b"
+PKG_VERSION="7bec3f7"
+PKG_SHA256="cdc64c8e53e3a54acee3b24a14e81b9153d57914a299311600c7be8c1455cb0d"
 PKG_ARCH="any"
 PKG_LICENSE="LGPLv2.1+"
 PKG_SITE="https://ffmpeg.org"
