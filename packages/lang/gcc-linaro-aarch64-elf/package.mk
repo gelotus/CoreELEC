@@ -17,13 +17,13 @@
 ################################################################################
 
 PKG_NAME="gcc-linaro-aarch64-elf"
-PKG_VERSION="4.9-2017.01"
-PKG_SHA256="00c79aaf7ff9b1c22f7b0443a730056b3936561a4206af187ef61a4e3cab1716"
+PKG_VERSION="7.2-2017.11"
+PKG_SHA256="30fb7d876bcb982c502057c593d9c1f11b35d5158a26d986718e2b998388c4c8"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE=""
-PKG_URL="https://releases.linaro.org/components/toolchain/binaries/${PKG_VERSION}/aarch64-elf/gcc-linaro-4.9.4-2017.01-x86_64_aarch64-elf.tar.xz"
-PKG_SOURCE_DIR="gcc-linaro-4.9.4-2017.01-x86_64_aarch64-elf"
+PKG_URL="https://releases.linaro.org/components/toolchain/binaries/${PKG_VERSION}/aarch64-elf/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-elf.tar.xz"
+PKG_SOURCE_DIR="gcc-linaro-7.2.1-2017.11-x86_64_aarch64-elf"
 PKG_DEPENDS_HOST="toolchain"
 PKG_SECTION="lang"
 PKG_SHORTDESC=""

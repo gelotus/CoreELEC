@@ -17,13 +17,13 @@
 ################################################################################
 
 PKG_NAME="gcc-linaro-arm-eabi"
-PKG_VERSION="4.9-2017.01"
-PKG_SHA256="5fa170a74db172dca098c70ae58f4c08d2fca0232ce135530b2ef4996326b4bd"
+PKG_VERSION="7.2-2017.11"
+PKG_SHA256="45fc4f90af2e2e9c3197a275f6005ef5639f7a1889fa3eb24c3125ccd70fcd3d"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE=""
-PKG_URL="https://releases.linaro.org/components/toolchain/binaries/${PKG_VERSION}/arm-eabi/gcc-linaro-4.9.4-2017.01-x86_64_arm-eabi.tar.xz"
-PKG_SOURCE_DIR="gcc-linaro-4.9.4-2017.01-x86_64_arm-eabi"
+PKG_URL="https://releases.linaro.org/components/toolchain/binaries/${PKG_VERSION}/arm-eabi/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi.tar.xz"
+PKG_SOURCE_DIR="gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi"
 PKG_DEPENDS_HOST="toolchain"
 PKG_SECTION="lang"
 PKG_SHORTDESC=""
