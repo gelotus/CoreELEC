@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="inputstream.adaptive"
-PKG_VERSION="a7eca16"
-PKG_SHA256="3668a300a761f8ea4e4a4e74600f59135afff6e3b3c5f0aeacd382cecc49edec"
+PKG_VERSION="34b5af2"
+PKG_SHA256="d36bf71f109d78fe43296d2942a6638a80e392598ca5c8917c4d7dfeff6109c3"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
 PKG_URL="https://github.com/peak3d/inputstream.adaptive/archive/$PKG_VERSION.tar.gz"
