@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="fluidsynth"
-PKG_VERSION="1.1.6"
-PKG_SHA256="d28b47dfbf7f8e426902ae7fa2981d821fbf84f41da9e1b85be933d2d748f601"
+PKG_VERSION="1.1.10"
+PKG_SHA256="b74801d0fdd726c4555149bf075b76dc4074658ec0a8f7a3753f4a64589e5300"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://fluidsynth.org/"
-PKG_URL="$SOURCEFORGE_SRC/project/fluidsynth/fluidsynth-$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.bz2"
+PKG_URL="https://github.com/FluidSynth/$PKG_NAME/archive/v$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_SECTION="audio"
 PKG_SHORTDESC="FluidSynth: A SoundFont Synthesizer."
