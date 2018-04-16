@@ -1,0 +1,27 @@
+--- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp  2018-04-16 13:38:58.907441295 +0200
++++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp  2018-04-16 15:49:55.244827848 +0200
+@@ -80,6 +80,7 @@
+   // Register sink
+   AE::CAESinkFactory::ClearSinks();
+   CAESinkALSA::Register();
++  m_lirc.reset(OPTIONALS::LircRegister());
+   CLinuxPowerSyscall::Register();
+ }
+
+ --- a/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 10:06:21.000000000 +0200
+ +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 15:49:42.296431490 +0200
+ @@ -21,6 +21,7 @@
+  #pragma once
+
+  #include "rendering/gles/RenderSystemGLES.h"
+ +#include "platform/linux/OptionalsReg.h"
+  #include "threads/CriticalSection.h"
+  #include "windowing/WinSystem.h"
+  #include "threads/SystemClock.h"
+ @@ -63,4 +64,5 @@
+
+    CCriticalSection m_resourceSection;
+    std::vector<IDispResource*> m_resources;
+ +  std::unique_ptr<OPTIONALS::CLircContainer, OPTIONALS::delete_CLircContainer> m_lirc;
+  };
+  
