@@ -2,10 +2,9 @@
 Description=Eventlirc server daemon
 
 [Service]
-ExecStart=/usr/sbin/eventlircd -f --evmap=/etc/eventlircd.d --socket=/run/lirc/lircd
+ExecStart=/usr/sbin/eventlircd -f --evmap=/etc/eventlircd.d --socket=/var/run/lirc/lircd
 KillMode=process
 TimeoutStopSec=1s
 
 [Install]
 WantedBy=multi-user.target
-
