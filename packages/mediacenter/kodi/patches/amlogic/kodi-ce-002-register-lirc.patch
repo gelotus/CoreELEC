@@ -1,13 +1,15 @@
 --- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp  2018-04-16 13:38:58.907441295 +0200
 +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp  2018-04-16 15:49:55.244827848 +0200
-@@ -81,6 +81,7 @@
-   AE::CAESinkFactory::ClearSinks();
-   CAESinkALSA::Register();
-   CAESinkPULSE::Register();
-   CLinuxPowerSyscall::Register();
-+  m_lirc.reset(OPTIONALS::LircRegister());
- }
+@@ -104,6 +104,9 @@
 
+   aml_set_framebuffer_resolution(1920, 1080, m_framebuffer_name);
+
++  m_lirc.reset(OPTIONALS::LircRegister());
++  CLog::Log(LOGDEBUG, "OPTIONALS::LircRegister -- register Lirc client");
++
+   return CWinSystemBase::InitWindowSystem();
+ }
+ 
  --- a/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 10:06:21.000000000 +0200
  +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 15:49:42.296431490 +0200
  @@ -21,6 +21,7 @@

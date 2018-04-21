@@ -15,6 +15,6 @@
 +      CloseWindowSync(pWindow, iWindowID);
 +    }
 +  }
-   g_infoManager.GetInfoProviders().GetGUIControlsInfoProvider().SetNextWindow(WINDOW_INVALID);
+   CServiceBroker::GetGUI()->GetInfoManager().GetInfoProviders().GetGUIControlsInfoProvider().SetNextWindow(WINDOW_INVALID);
 
    // Add window to the history list (we must do this before we activate it,

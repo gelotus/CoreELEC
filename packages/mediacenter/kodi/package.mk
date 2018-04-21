@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="kodi"
-PKG_VERSION="992b393"
-PKG_SHA256="5b8988b3f2915d9c6c5238f4a897bdb8c8752ea47dd8dfd3f277e9a07b67851d"
+PKG_VERSION="16abdf8"
+PKG_SHA256="49b5472e37e65455e183a0697790dc591c151350537b276cf6fe0beb472dc2bf"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
@@ -225,6 +225,7 @@ PKG_CMAKE_OPTS_TARGET="-DNATIVEPREFIX=$TOOLCHAIN \
                        -DENABLE_DBUS=ON \
                        -DENABLE_XSLT=ON \
                        -DENABLE_CCACHE=ON \
+                       -DENABLE_LIRCCLIENT=ON \
                        -DENABLE_EVENTCLIENTS=ON \
                        -DENABLE_LDGOLD=ON \
                        -DENABLE_DEBUGFISSION=OFF \
