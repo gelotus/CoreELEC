@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="libogg"
-PKG_VERSION="1.3.2"
-PKG_SHA256="e19ee34711d7af328cb26287f4137e70630e7261b17cbe3cd41011d73a654692"
+PKG_VERSION="1.3.3"
+PKG_SHA256="4f3fc6178a533d392064f14776b23c397ed4b9f48f5de297aba73b643f955c08"
 PKG_ARCH="any"
 PKG_LICENSE="BSD"
 PKG_SITE="https://www.xiph.org/ogg/"
-PKG_URL="http://downloads.xiph.org/releases/ogg/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_URL="http://downloads.xiph.org/releases/ogg/$PKG_NAME-$PKG_VERSION.tar.xz"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_SECTION="audio"
 PKG_SHORTDESC="libogg: Open source bitstream container format"
