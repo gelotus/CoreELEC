@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="pvr.dvbviewer"
-PKG_VERSION="7936ba1"
-PKG_SHA256="1f260280adff80689f70c299d231fccff2f8be4fdbe5ede23a66309054943dc1"
+PKG_VERSION="3799782"
+PKG_SHA256="1d8a9d129550dccb622b6a6955aadf58dc40bdbb85f4dce899b81436a077509e"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="http://www.kodi.tv"
+PKG_SITE="https://github.com/kodi-pvr/pvr.dvbviewer"
 PKG_URL="https://github.com/kodi-pvr/pvr.dvbviewer/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain kodi-platform"
 PKG_SECTION=""
