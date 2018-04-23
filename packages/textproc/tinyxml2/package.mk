@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="tinyxml2"
-PKG_VERSION="1.0.12"
-PKG_SHA256="53a4dd1b3aed4aa05b18782e303646669d2d3b2de3c1919fe21aea319b44de7f"
+PKG_VERSION="6.2.0"
+PKG_SHA256="cdf0c2179ae7a7931dba52463741cf59024198bbf9673bf08415bcb46344110f"
 PKG_ARCH="any"
 PKG_LICENSE="zlib"
 PKG_SITE="http://www.grinninglizard.com/tinyxml2/index.html"
-PKG_URL="$DISTRO_SRC/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_URL="https://github.com/leethomason/$PKG_NAME/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_SECTION="textproc"
 PKG_SHORTDESC="tinyxml2: XML parser library"
