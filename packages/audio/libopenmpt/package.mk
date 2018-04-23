@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libopenmpt"
-PKG_VERSION="0.3.1"
-PKG_SHA256="6fc5614926edd523d5585e40fdaf0b2ea08689d4dc91de49511d02503744cbb5"
+PKG_VERSION="0.3.8"
+PKG_SHA256="3d46dd0cc217b93976df755f2f633de06a8c30c5c69d74e5f65a136b1c82e905"
 PKG_ARCH="any"
 PKG_LICENSE="BSD"
 PKG_SITE="http://lib.openmpt.org/libopenmpt/"
