@@ -17,7 +17,6 @@
 ################################################################################
 
 PKG_NAME="tiff"
-#PKG_VERSION="4.0.3"
 PKG_VERSION="4.0.9"
 PKG_SHA256="6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
 PKG_ARCH="any"
