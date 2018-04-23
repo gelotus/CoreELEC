@@ -17,9 +17,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg"
-# Current branch is: release/3.4-kodi
-PKG_VERSION="7bec3f7"
-PKG_SHA256="cdc64c8e53e3a54acee3b24a14e81b9153d57914a299311600c7be8c1455cb0d"
+PKG_VERSION="e115b34"
+PKG_SHA256="d9aa2a281f002982474b45980553d3669a8c79021cf08e4cfcff5dd6e8e81268"
 PKG_ARCH="any"
 PKG_LICENSE="LGPLv2.1+"
 PKG_SITE="https://ffmpeg.org"
@@ -83,14 +82,6 @@ fi
 pre_configure_target() {
   cd $PKG_BUILD
   rm -rf .$TARGET_NAME
-
-  if [ "$KODIPLAYER_DRIVER" = "bcm2835-driver" ]; then
-    CFLAGS="-I$SYSROOT_PREFIX/usr/include/interface/vcos/pthreads -I$SYSROOT_PREFIX/usr/include/interface/vmcs_host/linux $CFLAGS"
-    FFMPEG_LIBS="-lbcm_host -lvcos -lvchiq_arm -lmmal -lmmal_core -lmmal_util -lvcsm"
-    FFMPEG_RPI="--enable-rpi"
-  else
-    FFMPEG_RPI="--disable-rpi"
-  fi
 }
 
 configure_target() {
@@ -127,7 +118,6 @@ configure_target() {
               --disable-extra-warnings \
               --disable-ffprobe \
               --disable-ffplay \
-              --disable-ffserver \
               --enable-ffmpeg \
               --enable-avdevice \
               --enable-avcodec \
@@ -150,7 +140,6 @@ configure_target() {
               --disable-crystalhd \
               $FFMPEG_VAAPI \
               $FFMPEG_VDPAU \
-              $FFMPEG_RPI \
               $FFMPEG_RKMPP \
               --disable-dxva2 \
               --enable-runtime-cpudetect \
