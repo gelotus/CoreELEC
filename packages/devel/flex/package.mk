@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="flex"
-PKG_VERSION="b33fd4c"
-PKG_SHA256="3d7f63804b090669a2c5c8cb5ed48e50b94cfa797cba2781d7bded9164a1e25c"
+PKG_VERSION="60b578f"
+PKG_SHA256="7584a9f01a31a47179bff9ea0ccec92cc9b7b3e54fa4be305bee8f098061d5e8"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/westes/flex/"
