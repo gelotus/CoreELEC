@@ -15,7 +15,7 @@
 #  GNU General Public License for more details.
 #
 #  You should have received a copy of the GNU General Public License
-#  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
+#  along with CoreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
 if [ ! -e /storage/.cache/coreelec_init ]; then
