@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libxkbcommon"
-PKG_VERSION="0.7.1"
-PKG_SHA256="ba59305d2e19e47c27ea065c2e0df96ebac6a3c6e97e28ae5620073b6084e68b"
+PKG_VERSION="0.8.0"
+PKG_SHA256="e829265db04e0aebfb0591b6dc3377b64599558167846c3f5ee5c5e53641fe6d"
 PKG_ARCH="any"
 PKG_LICENSE="OSS"
 PKG_SITE="http://xkbcommon.org"
@@ -29,7 +29,17 @@ PKG_SHORTDESC="xkbcommon: a library to handle keyboard descriptions"
 PKG_LONGDESC="xkbcommon is a library to handle keyboard descriptions, including loading them from disk, parsing them and handling their state. It's mainly meant for client toolkits, window systems, and other system applications; currently that includes Wayland, kmscon, GTK+, Qt, Clutter, and more. It is also used by some XCB applications for proper keyboard support."
 
 if [ "$DISPLAYSERVER" = "x11" ]; then
-  PKG_CONFIGURE_OPTS_TARGET="--enable-x11"
+  PKG_MESON_OPTS_TARGET="-Denable-x11=true \
+                         -Denable-wayland=false \
+                         -Denable-docs=false"
+else if [ "$DISPLAYSERVER" = "wayland" ]; then
+  PKG_MESON_OPTS_TARGET="-Denable-wayland=true \
+                         -Denable-x11=false \
+                         -Denable-docs=false"
 else
-  PKG_CONFIGURE_OPTS_TARGET="--disable-x11"
+  PKG_MESON_OPTS_TARGET="-Denable-x11=false \
+                         -Denable-wayland=false \
+                         -Denable-docs=false"
 fi
+fi
+
