@@ -1,28 +1,27 @@
 --- a/xbmc/windowing/amlogic/WinSystemAmlogic.cpp  2018-04-16 13:38:58.907441295 +0200
 +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.cpp  2018-04-16 15:49:55.244827848 +0200
-@@ -104,6 +104,9 @@
-
-   aml_set_framebuffer_resolution(1920, 1080, m_framebuffer_name);
-
+@@ -81,6 +81,7 @@
+   CAESinkALSA::Register();
+   CAESinkPULSE::Register();
+   CLinuxPowerSyscall::Register();
 +  m_lirc.reset(OPTIONALS::LircRegister());
-+  CLog::Log(LOGDEBUG, "OPTIONALS::LircRegister -- register Lirc client");
-+
-   return CWinSystemBase::InitWindowSystem();
+   m_libinput->Start();
  }
  
- --- a/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 10:06:21.000000000 +0200
- +++ b/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 15:49:42.296431490 +0200
- @@ -21,6 +21,7 @@
-  #pragma once
+--- a/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 10:06:21.000000000 +0200
++++ b/xbmc/windowing/amlogic/WinSystemAmlogic.h  2018-04-16 15:49:42.296431490 +0200
+@@ -21,6 +21,7 @@
+ #pragma once
+ 
+ #include "platform/linux/input/LibInputHandler.h"
++#include "platform/linux/OptionalsReg.h"
+ #include "rendering/gles/RenderSystemGLES.h"
+ #include "threads/CriticalSection.h"
+ #include "windowing/WinSystem.h"
+@@ -66,4 +67,5 @@
+   std::vector<IDispResource*> m_resources;
+ 
+   std::unique_ptr<CLibInputHandler> m_libinput;
++  std::unique_ptr<OPTIONALS::CLircContainer, OPTIONALS::delete_CLircContainer> m_lirc;
+ };
 
- +#include "platform/linux/OptionalsReg.h"
-  #include "rendering/gles/RenderSystemGLES.h"
-  #include "threads/CriticalSection.h"
-  #include "windowing/WinSystem.h"
-  #include "threads/SystemClock.h"
- @@ -63,4 +64,5 @@
-
-    CCriticalSection m_resourceSection;
-    std::vector<IDispResource*> m_resources;
- +  std::unique_ptr<OPTIONALS::CLircContainer, OPTIONALS::delete_CLircContainer> m_lirc;
-  };
