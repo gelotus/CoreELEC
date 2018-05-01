@@ -48,11 +48,18 @@ if [ "$MEDIACENTER" = "kodi" ]; then
 
   _ADDONS_OTHER=yes
 
+  if [ "$DEVICE" = "S905" -o "$DEVICE" = "S912" ]; then
+    _ADDON_VFD=yes
+  fi
+
   if [ "${_ADDONS_OTHER}" = "yes" ]; then
     _add_binary_addon "imagedecoder.raw"
     _add_binary_addon "inputstream.adaptive"
     _add_binary_addon "inputstream.rtmp"
     _add_binary_addon "vfs.rar"
+  fi
+  if [ "${_ADDON_VFD}" = "yes" ]; then
+    _add_binary_addon "vfd"
   fi
 
   if [ "$JOYSTICK_SUPPORT" = "yes" ]; then

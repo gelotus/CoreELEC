@@ -339,6 +339,10 @@ post_makeinstall_target() {
     xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "service.slice" $ADDON_MANIFEST
   fi
 
+  if [ "$DEVICE" = "S905" -o "$DEVICE" = "S912" ]; then
+    xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "service.vfd" $ADDON_MANIFEST
+  fi
+
   if [ -d $ROOT/addons ]; then
     mkdir -p $INSTALL/usr/share/kodi/addons
     for i in `ls $ROOT/addons | grep zip`
