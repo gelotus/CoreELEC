@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="nano"
-PKG_VERSION="2.9.5"
-PKG_SHA256="620290467d5340448b728fc7535418db18edac661cf8f95bccc74d768b2614d0"
+PKG_VERSION="2.9.6"
+PKG_SHA256="4ec0a0196914a7665572bcd8a32d76535ea19a8213ea67cf8f63e8ce566b1e0a"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.nano-editor.org/"
