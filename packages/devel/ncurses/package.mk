@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="ncurses"
-PKG_VERSION="6.1-20180414"
-PKG_SHA256="0b693c9841314429244181b983684e4d6b1828928d374c1f515d0b5bbaea95dd"
+PKG_VERSION="6.1-20180428"
+PKG_SHA256="391591b4020122f8189eed91d3cfb4439160006c2d2d59b4a4c17523797505e2"
 PKG_ARCH="any"
 PKG_LICENSE="MIT"
 PKG_SITE="http://www.gnu.org/software/ncurses/"
