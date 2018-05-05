@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libdvbcsa"
-PKG_VERSION="aae3d0c"
-PKG_SHA256="2c0b69a5ca70c5032f9375a57bcec449ecdf93b5459f60f087f5fa06c605c7c1"
+PKG_VERSION="2a1e61e"
+PKG_SHA256="0cca50576222475afd6945fc883ee19870656a73353eb0b219078671abaf3fbb"
 PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://www.videolan.org/developers/libdvbcsa.html"
