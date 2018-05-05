@@ -150,7 +150,6 @@ configure_target() {
               --enable-encoder=wmav2 \
               --enable-encoder=mjpeg \
               --enable-encoder=png \
-              --disable-decoder=mpeg_xvmc \
               --enable-hwaccels \
               --disable-muxers \
               --enable-muxer=spdif \
