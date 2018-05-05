@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="LibreELEC-settings"
-PKG_VERSION="fbdc65a"
-PKG_SHA256="c75177a1cf196c2ede86040e8e596b22df9a58b956962a5614b623c8ce2b231a"
+PKG_VERSION="f4a16d4"
+PKG_SHA256="9c77e71bcdc8c19d9a27ce2bec33b176836275bb431a22655024e1036ed5d13f"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/gelotus/service.libreelec.settings"
