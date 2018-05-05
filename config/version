@@ -1,5 +1,5 @@
 # VERSION: set full version, use "devel" for development version
-  LIBREELEC_VERSION="v0.13_edge"
+  LIBREELEC_VERSION="v0.14_edge"
 
 # OS_VERSION: OS Version
   OS_VERSION="9.0"
