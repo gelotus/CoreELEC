@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="x264"
-PKG_VERSION="snapshot-20180220-2245"
-PKG_SHA256="80090285b40983776793168a3828dfd8125caca06cb6949511d64946d6166882"
+PKG_VERSION="snapshot-20180507-2245"
+PKG_SHA256="996329240fedb6fc2a4ac47f3c19b4b1b1a9e67721e7041c8cc819af48a524c5"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.videolan.org/developers/x264.html"
