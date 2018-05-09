@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.snes9x"
-PKG_VERSION="10f6321"
-PKG_SHA256="5707b8921f0692689a60edcbffbd330e52bad3f55d4bcdbade087da6c2fc2f62"
+PKG_VERSION="fbf0937"
+PKG_SHA256="bb941adb32481b01754b0f3ba07ec0d72116ac85cff81b2d68adfa618938c583"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
