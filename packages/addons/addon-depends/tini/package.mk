@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="tini"
-PKG_VERSION="949e6fa"
-PKG_SHA256="7d1ac577b44a1bd097d6684ec5090b749cdf94962f38f3ed7b46d6ec0e25c209"
+PKG_VERSION="fec3683"
+PKG_SHA256="20ee672afa8be72f5a8334044d8c2ce31bc6f2347fa240cac9c84b6c7dbc684c"
 PKG_ARCH="any"
 PKG_LICENSE="MIT"
 PKG_SITE="https://github.com/krallin/tini"
