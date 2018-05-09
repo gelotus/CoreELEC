@@ -17,10 +17,10 @@
 ################################################################################
 
 PKG_NAME="inputstream.rtmp"
-PKG_VERSION="3b5058d"
-PKG_SHA256="cf2b935bcd12dee759aeaca6c9ad65294a4323d430c7029e7f2923e10aa1a679"
+PKG_VERSION="8920456"
+PKG_SHA256="57d7f1084aac6f31e0cfdb2ff148a0ad290e046d2f6dc0d6b762f58132cbeb85"
 PKG_LICENSE="GPL"
-PKG_SITE="http://www.kodi.tv"
+PKG_SITE="https://github.com/notspiff/inputstream.rtmp"
 PKG_URL="https://github.com/notspiff/inputstream.rtmp/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain kodi-platform rtmpdump"
 PKG_SECTION=""
