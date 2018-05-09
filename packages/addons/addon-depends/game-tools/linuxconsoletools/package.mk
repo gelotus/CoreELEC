@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="linuxconsoletools"
-PKG_VERSION="1.5.1"
-PKG_SHA256="0bd07aacea251d63d3d8a458728c7f965f41ae45891d906cefedc3fde0753b1e"
+PKG_VERSION="1.6.0"
+PKG_SHA256="ced2efed00b67b45f82eddc69be07385835d558f658016315ac621fe2eaa8146"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://sourceforge.net/projects/linuxconsole/"
