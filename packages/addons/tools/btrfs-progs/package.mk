@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="btrfs-progs"
-PKG_VERSION="4.8.4"
-PKG_SHA256="4741764daa4eee9179ae1d366f25b08e8ec99a2857bab03487e6a991f26a25ff"
+PKG_VERSION="4.13.3"
+PKG_SHA256="625426e9c0858ae2cdb968596bcf9a4ca5e5f6f709d7e8131badfb544cd705ec"
 PKG_REV="101"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
