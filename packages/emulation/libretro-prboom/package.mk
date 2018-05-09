@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libretro-prboom"
-PKG_VERSION="494885c"
-PKG_SHA256="c49921bce3588b2775aed4f65dc014c0e68be2eb6014ea2e2e2eed23940f44da"
+PKG_VERSION="1ddc0c1"
+PKG_SHA256="f79d0c9cd9fd3d29bd9e5a188b4f4c167aaad55f7b6d3209037c3206f57c8b19"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/libretro/libretro-prboom"
