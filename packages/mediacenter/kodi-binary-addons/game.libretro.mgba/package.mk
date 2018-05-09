@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.mgba"
-PKG_VERSION="23f94b4"
-PKG_SHA256="74f7714f267f5270708d977f8977bad05a54b27dca67e566b2526271e37d19cc"
+PKG_VERSION="9ba343c"
+PKG_SHA256="b6e5685e0294fc7a24e5230bb8bbc5cdc02d0022abd0e26e18958f2e54509118"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
