@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="mpg123"
-PKG_VERSION="1.23.6"
-PKG_SHA256="4073d9c60a43872f6f5a3a322f5ea21ab7f0869d2ed25e79c3eb8521fa3c32d4"
+PKG_VERSION="1.25.10"
+PKG_SHA256="6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023"
 PKG_ARCH="any"
 PKG_LICENSE="LGPLv2"
 PKG_SITE="http://www.mpg123.org/"
