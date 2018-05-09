@@ -29,8 +29,6 @@ PKG_SHORTDESC="Service for controlling FD628 VFD display icons"
 PKG_LONGDESC="Service for controlling FD628 VFD display icons, e.g. Ethernet/WiFi connection status and Time"
 PKG_TOOLCHAIN="manual"
 
-PKG_ADDON_BROKEN="FD628 Display is no longer maintained and has been superseded by VFD Display."
-
 PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="FD628 Service"
 PKG_ADDON_PROJECTS="S905 S912"
