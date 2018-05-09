@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="vfs.libarchive"
-PKG_VERSION="e7d149e"
-PKG_SHA256="dd9604752dcb4fbe38b082455935e95dc7b572a1424a49c935989292038f1b74"
+PKG_VERSION="1b00b57"
+PKG_SHA256="a1e701869c3e10cfdd122573840fd99ffaffa0b7c5a822a93fd407adfa1f48db"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="http://www.kodi.tv"
+PKG_SITE="https://github.com/notspiff/vfs.libarchive"
 PKG_URL="https://github.com/notspiff/vfs.libarchive/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain kodi-platform bzip2 libarchive lz4 lzo xz zlib"
 PKG_SECTION=""
