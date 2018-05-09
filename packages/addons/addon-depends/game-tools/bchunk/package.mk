@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="bchunk"
-PKG_VERSION="1.2.0"
-PKG_SHA256="afdc9d5e38bdd16f0b8b9d9d382b0faee0b1e0494446d686a08b256446f78b5d"
+PKG_VERSION="1.2.2"
+PKG_SHA256="e7d99b5b60ff0b94c540379f6396a670210400124544fb1af985dd3551eabd89"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://he.fi/bchunk/"
