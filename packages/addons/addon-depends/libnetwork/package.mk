@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libnetwork"
-PKG_VERSION="7b2b1fe"
-PKG_SHA256="2eee331b6ded567a36e7db708405b34032b93938682cf049025f48b96d755bf6"
+PKG_VERSION="d5818e7"
+PKG_SHA256="8953318a4baa35e2c8e33abf1dd33a284e439b7a903a06ca27e20055bb62c94f"
 PKG_ARCH="any"
 PKG_LICENSE="APL"
 PKG_SITE="https://github.com/docker/libnetwork"
@@ -57,9 +57,16 @@ pre_make_target() {
   export CGO_CFLAGS=$CFLAGS
   export LDFLAGS="-extld $CC"
   export GOLANG=$TOOLCHAIN/lib/golang/bin/go
-  export GOPATH=$PKG_BUILD.gopath
+  export GOPATH=$PKG_BUILD/.gopath
   export GOROOT=$TOOLCHAIN/lib/golang
   export PATH=$PATH:$GOROOT/bin
+
+  mkdir -p $PKG_BUILD/.gopath
+  if [ -d $PKG_BUILD/vendor ]; then
+    mv $PKG_BUILD/vendor $PKG_BUILD/.gopath/src
+  fi
+
+  ln -fs $PKG_BUILD $PKG_BUILD/.gopath/src/github.com/ishidawataru/sctp
 }
 
 make_target() {
