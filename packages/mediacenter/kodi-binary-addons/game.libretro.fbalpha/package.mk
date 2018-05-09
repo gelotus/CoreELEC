@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.fbalpha"
-PKG_VERSION="b974b63"
-PKG_SHA256="60da547ab812c525e09a00c62355e7af2633065eac7fe350e8663975be1e27f1"
+PKG_VERSION="86937ef"
+PKG_SHA256="79ea81d80d04faba064335ec5eb6a10bd41f39883edd1269b68c6a7651033829"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
