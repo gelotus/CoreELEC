@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.gambatte"
-PKG_VERSION="ad658a4"
-PKG_SHA256="6638424d16fd61b3079d82fe24581e9dcc5e7b9976b79c56a053a048ffd17d46"
+PKG_VERSION="220d470"
+PKG_SHA256="8cf1fe499ab7d1e45a1d06622f97b673624b9664cf9a9a76c0a7e580623bc292"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
