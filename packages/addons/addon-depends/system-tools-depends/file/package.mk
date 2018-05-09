@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="file"
-PKG_VERSION="70c5f15"
-PKG_SHA256="499a851b0aac92e261c069ab5581e8376ede9527bf36351f1d8d9dcd051819fc"
+PKG_VERSION="f41622e"
+PKG_SHA256="aea10b76d9c08c30c0f61b2efd0699679bdbecacccc30e006c149975e951f8c9"
 PKG_ARCH="any"
 PKG_LICENSE="BSD"
 PKG_SITE="http://www.darwinsys.com/file/"
