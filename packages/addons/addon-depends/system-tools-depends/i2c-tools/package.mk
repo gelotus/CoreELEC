@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="i2c-tools"
-PKG_VERSION="3.1.2"
-PKG_SHA256="f939a6242c03950cc568d0efdfa3db7a9c29e0e8f5abd01f2908bdd344c054ff"
+PKG_VERSION="4.0"
+PKG_SHA256="02fe2f9187639fae83e67299db37cb4902adc4be02ea56d84016bef00548a957"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.lm-sensors.org/wiki/I2CTools"
@@ -36,9 +36,9 @@ pre_make_target() {
 make_target() {
   make  EXTRA="py-smbus" \
         CC="$CC" \
-        AR="$TARGET_AR" \
+        AR="$AR" \
         CFLAGS="$TARGET_CFLAGS" \
-        CPPFLAGS="$TARGET_CPPFLAGS -I${SYSROOT_PREFIX}/usr/include/$PKG_PYTHON_VERSION"
+        CPPFLAGS="$TARGET_CPPFLAGS -I${SYSROOT_PREFIX}/usr/include/$PKG_PYTHON_VERSION" -j1
 }
 
 makeinstall_target() {
