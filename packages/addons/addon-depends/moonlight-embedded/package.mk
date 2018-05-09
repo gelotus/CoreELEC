@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="moonlight-embedded"
-PKG_VERSION="dcda1a5"
-PKG_SHA256="b0fead77d77a6ffa73488ead2564ecba43d5c6ac397d5a751ef687f5fb42f29d"
+PKG_VERSION="1d63640"
+PKG_SHA256="7c148daade2eff60fd487c8ddd31629ca2911b8f520be08486bfc72c4161c1c5"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/irtimmer/moonlight-embedded"
