@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="mediainfo"
-PKG_VERSION="17.10"
-PKG_SHA256="0c1130cfa1878592f1225097a1814126378abbcc33926cdfff6bcc99422670fb"
+PKG_VERSION="18.03.1"
+PKG_SHA256="79664c356d4f09dc32105810aacf60923f6edcc6bec4836589962bc3375efcd6"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://mediaarea.net/en/MediaInfo/Download/Source"
