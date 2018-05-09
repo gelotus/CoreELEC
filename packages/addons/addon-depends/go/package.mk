@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="go"
-PKG_VERSION="1.9.2"
-PKG_SHA256="5fb19c45d5230a7c2380232c9fb5b7e8d6f45015003f63b1485f78c20f96bce4"
+PKG_VERSION="1.10.2"
+PKG_SHA256="23066371f3a60e9b1017ca25dd2b9bc6b77aad8e72f25295566ba08f01140c7a"
 PKG_ARCH="any"
 PKG_LICENSE="BSD"
 PKG_SITE="https://golang.org"
