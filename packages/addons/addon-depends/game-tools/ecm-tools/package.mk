@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="ecm-tools"
-PKG_VERSION="55365b0"
-PKG_SHA256="39c2d0e36b1cba33fa9fee1c0a2a63f851b561fceb59dc99550a1e8e580d3b5a"
+PKG_VERSION="2765930"
+PKG_SHA256="8f59ebf9a863f5c64bc5aa54de47118d4f60296f0a601904fa1ee7f91bc1b3b3"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/alucryd/ecm-tools"
