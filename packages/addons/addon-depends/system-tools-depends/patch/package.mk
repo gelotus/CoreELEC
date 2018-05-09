@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="patch"
-PKG_VERSION="2.7.5"
-PKG_SHA256="fd95153655d6b95567e623843a0e77b81612d502ecf78a489a4aed7867caa299"
+PKG_VERSION="2.7.6"
+PKG_SHA256="ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://savannah.gnu.org/projects/patch/"
