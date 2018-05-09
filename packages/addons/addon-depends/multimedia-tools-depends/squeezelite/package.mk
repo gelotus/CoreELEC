@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="squeezelite"
-PKG_VERSION="e92c09c"
-PKG_SHA256="935106bfc11ed27f5e5d3c3e08a8edb30876dc967b2ed9ca9b75a8a19afb6bca"
+PKG_VERSION="b2ed99e"
+PKG_SHA256="9773543d6565481c519fb73d42d59a25a2940bfbb39b48ce81054cd9dd24e2a9"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/ralph-irving/squeezelite"
@@ -31,9 +31,12 @@ PKG_LONGDESC="A client for the Logitech Media Server"
 pre_make_target() {
   OPTS="-DDSD -DFFMPEG -DRESAMPLE -DVISEXPORT -DLINKALL"
   CFLAGS="$CFLAGS $OPTS"
-  LDFLAGS="$LDFLAGS -lasound -lpthread -lm -lrt -lFLAC -lmad -lvorbisfile -lfaad -lmpg123 -lvorbis -logg"
+  LDFLAGS="$LDFLAGS -lasound -lpthread -lm -lrt -lFLAC -lmad -lvorbisfile -lfaad -lmpg123 -lvorbis -logg -lavcodec -lavformat -lavutil -lsoxr"
 }
 
+make_target() {
+  make OPTS="-DDSD -DFFMPEG -DRESAMPLE -DVISEXPORT -DLINKALL"
+}
 makeinstall_target() {
   :
 }
