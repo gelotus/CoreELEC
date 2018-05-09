@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="containerd"
-PKG_VERSION="06b9cb3"
-PKG_SHA256="4d2b6e30bcc6c4bb901d6b9f19b5ac1d4a2d9b17075a9b1f110102920d01f64a"
+PKG_VERSION="26183b3"
+PKG_SHA256="e21118f0c2e5b4cb7d0ec9038a871416b43eba2f4b99e64f20c0a92bd9b7f28f"
 PKG_ARCH="any"
 PKG_LICENSE="APL"
 PKG_SITE="https://containerd.tools/"
@@ -71,6 +71,7 @@ pre_make_target() {
 
 make_target() {
   mkdir -p bin
-  $GOLANG build -v -o bin/containerd      -a -tags "static_build" -ldflags "$LDFLAGS" ./containerd
-  $GOLANG build -v -o bin/containerd-shim -a -tags "static_build" -ldflags "$LDFLAGS" ./containerd-shim
+export
+  $GOLANG build -v -o bin/containerd      -a -tags "static_build no_btrfs" -ldflags "$LDFLAGS" ./cmd/containerd
+  $GOLANG build -v -o bin/containerd-shim -a -tags "static_build no_btrfs" -ldflags "$LDFLAGS" ./cmd/containerd-shim
 }
