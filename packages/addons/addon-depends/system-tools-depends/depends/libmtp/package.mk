@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libmtp"
-PKG_VERSION="1.1.13"
-PKG_SHA256="494ee02fbfbc316aad75b93263dac00f02a4899f28cfda1decbbd6e26fda6d40"
+PKG_VERSION="1.1.15"
+PKG_SHA256="d040900b46757e311b1fb3bfa8c05db09c8b6811e044bce8c88c9f3f6d3a3021"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://libmtp.sourceforge.net/"
