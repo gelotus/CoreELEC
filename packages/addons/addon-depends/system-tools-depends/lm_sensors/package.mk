@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="lm_sensors"
-PKG_VERSION="0d5ccf6"
-PKG_SHA256="172b297671d794b78a5bb9dde4cc3218fea50480e45b5cc9ab5d50162710b2e4"
+PKG_VERSION="e0a0238"
+PKG_SHA256="adf7d65ff969f2c4a4eeace713985dfc41aea7b5b573bab18df29f410566595a"
 PKG_ARCH="arm x86_64"
 PKG_LICENSE="GPL"
 PKG_SITE="http://secure.netroedge.com/~lm78/"
