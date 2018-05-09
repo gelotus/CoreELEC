@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="fluidsynth"
-PKG_VERSION="1.1.10"
-PKG_SHA256="b74801d0fdd726c4555149bf075b76dc4074658ec0a8f7a3753f4a64589e5300"
+PKG_VERSION="1.1.11"
+PKG_SHA256="da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://fluidsynth.org/"
