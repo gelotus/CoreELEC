@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="steamcontroller"
-PKG_VERSION="60499dc"
-PKG_SHA256="04a846c6f659fb5efca7747fe78e15c1348b5e0579437bb425f538318289bb80"
+PKG_VERSION="80928ce"
+PKG_SHA256="87fb11c73712be8a4a0e07dd716f6f02cad3d9c1042762d56ed2a47cd93cef92"
 PKG_REV="102"
 PKG_ARCH="any"
 PKG_LICENSE="MIT"
