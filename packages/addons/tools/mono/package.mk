@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="mono"
-PKG_VERSION="5.8.0.108"
-PKG_SHA256="ecd7c55c2f62caa65fb360ace74a45ee44bbe2de046566d90594ba66c082f39c"
+PKG_VERSION="5.10.1.47"
+PKG_SHA256="90c237b5288f95f6fdab4ace1e36ab64a6369e2c9fddd462d604fd788e2545da"
 PKG_REV="110"
 PKG_ARCH="any"
 PKG_LICENSE="MIT"
