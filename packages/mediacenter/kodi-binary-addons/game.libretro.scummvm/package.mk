@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro.scummvm"
-PKG_VERSION="2a0499c"
-PKG_SHA256="8250386c1c370cf64758e301bbdb01ec59f6f881b6f3fcef0e0effb0e2cc84e8"
+PKG_VERSION="0cede52"
+PKG_SHA256="81b8a7206fea69ba556e63a36feac928897a35151ff8722c4a97ef44db04261e"
 PKG_REV="105"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
