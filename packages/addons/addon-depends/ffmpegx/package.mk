@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="ffmpegx"
-PKG_VERSION="3.4.2"
-PKG_SHA256="d079c68dc19a0223239a152ffc2b67ef1e9d3144e4d2c2563380dc59dccf33e5"
+PKG_VERSION="4.0"
+PKG_SHA256="95296f881f7e367731a35a71e3df5ebe9360cd4c859f06793bf8dcf917ee8e5a"
 PKG_ARCH="any"
 PKG_LICENSE="LGPLv2.1+"
 PKG_SITE="https://ffmpeg.org"
@@ -142,7 +142,6 @@ configure_target() {
     --enable-ffmpeg \
     --disable-ffplay \
     --enable-ffprobe \
-    --disable-ffserver \
     \
     `#Static and Shared` \
     --enable-static \
