@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libfastjson"
-PKG_VERSION="0.99.0"
-PKG_SHA256="5d19c39daaedfd9b335f6222b521e7529016bc11382cccebe41a9894d4ab32fd"
+PKG_VERSION="0.99.8"
+PKG_SHA256="3544c757668b4a257825b3cbc26f800f59ef3c1ff2a260f40f96b48ab1d59e07"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.rsyslog.com/tag/libfastjson/"
