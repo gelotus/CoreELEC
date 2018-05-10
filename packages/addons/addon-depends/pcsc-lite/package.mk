@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="pcsc-lite"
-PKG_VERSION="1.8.22"
-PKG_SHA256="6a358f61ed3b66a7f6e1f4e794a94c7be4c81b7a58ec360c33791e8d7d9bd405"
+PKG_VERSION="1.8.23"
+PKG_SHA256="5a27262586eff39cfd5c19aadc8891dd71c0818d3d629539bd631b958be689c9"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://pcsclite.alioth.debian.org/pcsclite.html"
