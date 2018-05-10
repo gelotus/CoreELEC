@@ -17,13 +17,13 @@
 ################################################################################
 
 PKG_NAME="snapcast"
-PKG_VERSION="0.13.0"
-PKG_SHA256="331cfc62db8631af80f6c8798b9c359eb55e34d607af0881c3520b94f238f94e"
+PKG_VERSION="0.14.0"
+PKG_SHA256="5201033592ca4f9e2ed78221eaea7fabcb222608c2385356c6b64cd127a78c07"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/badaix/snapcast"
 PKG_URL="https://github.com/badaix/snapcast/archive/v$PKG_VERSION.tar.gz"
-PKG_DEPENDS_TARGET="toolchain aixlog alsa-lib asio avahi flac libvorbis popl"
+PKG_DEPENDS_TARGET="toolchain aixlog alsa-lib asio avahi flac libogg libvorbis popl"
 PKG_SECTION="tools"
 PKG_LONGDESC="Synchronous multi-room audio player"
 PKG_TOOLCHAIN="make"
