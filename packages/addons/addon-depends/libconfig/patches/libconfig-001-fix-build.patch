@@ -1,0 +1,27 @@
+--- a/configure.ac	2018-01-06 05:58:31.000000000 +0100
++++ b/configure.ac	2018-05-10 17:25:53.093535272 +0200
+@@ -129,11 +129,5 @@
+ 	lib/libconfig++.pc
+ 	lib/libconfigConfig.cmake
+ 	lib/libconfig++Config.cmake
+-	doc/Makefile
+-	examples/Makefile
+-	examples/c/Makefile
+-	examples/c++/Makefile
+-	tinytest/Makefile
+-	tests/Makefile
+ 	libconfig.spec
+ 	)
+
+--- a/Makefile.am	2018-01-06 05:58:31.000000000 +0100
++++ b/Makefile.am	2018-05-10 17:26:57.891618319 +0200
+@@ -1,7 +1,7 @@
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-SUBDIRS = lib doc tinytest tests
++SUBDIRS = lib
+ 
+ if BUILDEXAMPLES
+ SUBDIRS += examples
+
