@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="inadyn"
-PKG_VERSION="2.2"
-PKG_SHA256="d6c69f0571161d9623fd4dcd2fa8515639b82e7f433058f524269c1e77d49b1a"
+PKG_VERSION="2.3.1"
+PKG_SHA256="450fe0512d1ca096771e75a14668bb1c37e403c4a06fd9ce2ad209bfb38509da"
 PKG_REV="103"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
