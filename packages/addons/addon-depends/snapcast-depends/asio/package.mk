@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="asio"
-PKG_VERSION="9229964"
-PKG_SHA256="799ca6607cb873bdc3253b0f8a058cb15af9c9fc2c74fd1732f6fe7726d7c200"
+PKG_VERSION="b0926b6"
+PKG_SHA256="a7f82f57a2a256e864b9ad4536aba84a4fb25b57002d8360addc85498faef53e"
 PKG_ARCH="any"
 PKG_LICENSE="BSL"
 PKG_SITE="http://think-async.com/Asio"
