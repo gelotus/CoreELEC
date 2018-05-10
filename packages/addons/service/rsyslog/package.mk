@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="rsyslog"
-PKG_VERSION="8.21.0"
-PKG_SHA256="bdb1fde87b75107b58d1cd5d00408822fb15b9f3efb8d9dbb93a1dee128339ab"
+PKG_VERSION="8.34.0"
+PKG_SHA256="18330a9764c55d2501b847aad267292bd96c2b12fa5c3b92909bd8d4563c80a9"
 PKG_REV="103"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
