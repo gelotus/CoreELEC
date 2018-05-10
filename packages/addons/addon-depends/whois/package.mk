@@ -19,8 +19,8 @@
 ################################################################################
 
 PKG_NAME="whois"
-PKG_VERSION="5.2.13"
-PKG_SHA256="d7af1e89e7b3c63835e78bcea6c8aeb14640a3f1027f18b7b619a47100a6f2dc"
+PKG_VERSION="5.3.0"
+PKG_SHA256="ba8013bd9316dec1c2c1b85fd092e71eaad741f12fd6d7dc833f98e6f1c35a1e"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.linux.it/~md/software/"
