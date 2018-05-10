@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="liblogging"
-PKG_VERSION="1.0.5"
-PKG_SHA256="310dc1691279b7a669d383581fe4b0babdc7bf75c9b54a24e51e60428624890b"
+PKG_VERSION="1.0.6"
+PKG_SHA256="338c6174e5c8652eaa34f956be3451f7491a4416ab489aef63151f802b00bf93"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.liblogging.org/"
