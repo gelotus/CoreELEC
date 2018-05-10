@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ccid"
-PKG_VERSION="1.4.28"
-PKG_SHA256="875836ac5d9d952b40dc1a253a726e74361671864d81337285a3260268f8ade0"
+PKG_VERSION="1.4.29"
+PKG_SHA256="a5432ae845730493c04e59304b5c0c6103cd0e2c8827df57d69469a3eaaab84d"
 PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://pcsclite.alioth.debian.org/ccid.html"
