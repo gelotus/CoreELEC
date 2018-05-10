@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="librelp"
-PKG_VERSION="1.2.12"
-PKG_SHA256="0355730524f7b20bed1b85697296b6ce57ac593ddc8dddcdca263da71dee7bd7"
+PKG_VERSION="1.2.15"
+PKG_SHA256="a931832d9056660feee76d52195b21d4e9e06d5ec8e96b26af44e998529da999"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.librelp.com/"
