@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="minidlna"
-PKG_VERSION="138d03d"
-PKG_SHA256="efd780aa7c7e076dee273694b73d2f03598b0201ca79335b2975779c24469f97"
+PKG_VERSION="799e6cf"
+PKG_SHA256="6d9d5a874381415b81dde80df30aa127ad732be341b37d73effb8a135454cbee"
 PKG_REV="100"
 PKG_ARCH="any"
 PKG_LICENSE="BSD-3c/GPLv2"
