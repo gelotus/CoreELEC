@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="mpd"
-PKG_VERSION="0.20.13"
-PKG_SHA256="46c1c534d80a52de00263e8ef43a6011ff9d765232443749539ef26b1b48ff40"
+PKG_VERSION="0.20.19"
+PKG_SHA256="01cdef1b9217588a8fa64dc2cba900c138e1363a787837b4c8327c652b7956c3"
 PKG_REV="104"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
