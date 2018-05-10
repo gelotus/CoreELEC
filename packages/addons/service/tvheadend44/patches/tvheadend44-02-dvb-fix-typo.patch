@@ -1,0 +1,12 @@
+--- a/src/transcoding/codec/codec.c	2018-05-10 23:09:39.720031695 +0200
++++ b/src/transcoding/codec/codec.c	2018-05-10 23:09:55.382906962 +0200
+@@ -102,7 +102,7 @@
+         str_snprintf(codec_title, sizeof(codec_title),
+             self->long_name ? "%s: %s%s" : "%s%s%s",
+             self->name, self->long_name ? self->long_name : "",
+-            (self->capabilities & CODEC_CAP_EXPERIMENTAL) ? " (Experimental)" : "")
++            (self->capabilities & AV_CODEC_CAP_EXPERIMENTAL) ? " (Experimental)" : "")
+        ) {
+         return NULL;
+     }
+
