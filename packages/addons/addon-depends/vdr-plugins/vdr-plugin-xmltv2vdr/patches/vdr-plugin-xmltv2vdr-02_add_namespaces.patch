@@ -1,0 +1,63 @@
+--- a/event.cpp	2018-05-13 23:52:02.634053711 +0200
++++ b/event.cpp	2018-05-13 23:57:28.362012818 +0200
+@@ -528,7 +528,7 @@
+         return;
+     }
+ 
+-    string si=sql_insert;
++    std::string si=sql_insert;
+     int ireps;
+     ireps=pcrecpp::RE("'").GlobalReplace("''",&si);
+     ireps+=pcrecpp::RE("\\^").GlobalReplace("'",&si);
+@@ -540,7 +540,7 @@
+     }
+     *Insert=sql_insert;
+ 
+-    string su=sql_update;
++    std::string su=sql_update;
+     int ureps;
+     ureps=pcrecpp::RE("'").GlobalReplace("''",&su);
+     ureps+=pcrecpp::RE("\\^").GlobalReplace("'",&su);
+
+--- a/import.cpp	2018-05-13 23:42:58.463489752 +0200
++++ b/import.cpp	2018-05-14 00:00:07.211798554 +0200
+@@ -1401,7 +1402,7 @@
+             return false;
+         }
+ 
+-        string ed=shortdesc;
++        std::string ed=shortdesc;
+ 
+         int reps;
+         reps=pcrecpp::RE("'").GlobalReplace("''",&ed);
+@@ -1511,7 +1512,7 @@
+             return false;
+         }
+ 
+-        string ed=eitdescription;
++        std::string ed=eitdescription;
+ 
+         int reps;
+         reps=pcrecpp::RE("'").GlobalReplace("''",&ed);
+@@ -1649,7 +1650,7 @@
+             return NULL;
+         }
+ 
+-        string st=sqltitle;
++        std::string st=sqltitle;
+ 
+         int reps;
+         reps=pcrecpp::RE("'").GlobalReplace("''",&st);
+
+--- a/dist/epgdata2xmltv/epgdata2xmltv.cpp	2018-05-14 00:04:23.554902832 +0200
++++ b/dist/epgdata2xmltv/epgdata2xmltv.cpp	2018-05-14 00:04:48.178019744 +0200
+@@ -561,7 +561,7 @@
+                 enca_analyser_free(analyser);
+             }
+ 
+-            string s = xmlmem;
++            std::string s = xmlmem;
+             int reps=pcrecpp::RE("&(?![a-zA-Z]{1,8};)").GlobalReplace("%amp;",&s);
+             if (reps) {
+                 xmlmem = (char *)realloc(xmlmem, s.size()+1);
+
