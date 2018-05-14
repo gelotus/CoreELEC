@@ -17,15 +17,15 @@
 ################################################################################
 
 PKG_NAME="htop"
-PKG_VERSION="2.2.0"
-PKG_SHA256="fb23275090ee5fb19266384c39c69519c8b3844b8f6444730094949c621197c0"
+PKG_VERSION="3.0.0beta4"
+PKG_SHA256="5f4cd645c40599efd4a9598a7cbd07bac77cf666427450a71d7b6dec5a4bf96f"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://hisham.hm/htop"
 PKG_URL="https://github.com/hishamhm/htop/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain ncurses"
 PKG_SECTION="tools"
-PKG_SHORTDESC="An interactive process viewer for Unix"
+PKG_LONGDESC="An interactive process viewer for Unix"
 PKG_TOOLCHAIN="autotools"
 
 PKG_CONFIGURE_OPTS_TARGET="--disable-unicode \
