@@ -29,7 +29,7 @@ PKG_SHORTDESC="lossy PNG compressor"
 PKG_LONGDESC="a PNG compresor that significantly reduces file sizes by converting images to a more efficient 8-bit PNG format"
 
 configure_host() {
-  : #
+  :
 }
 
 make_host() {
