@@ -16,18 +16,18 @@
 #  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="LibreELEC-settings"
-PKG_VERSION="f4a16d4"
-PKG_SHA256="9c77e71bcdc8c19d9a27ce2bec33b176836275bb431a22655024e1036ed5d13f"
+PKG_NAME="CoreELEC-settings"
+PKG_VERSION="7657cd0"
+PKG_SHA256="687a1b9b1aedb81ea6a5fa9bb2a2064f7835762b01d6135a51de1bbe14351bbc"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/gelotus/service.libreelec.settings"
-PKG_URL="https://github.com/gelotus/service.libreelec.settings/archive/$PKG_VERSION.tar.gz"
-PKG_SOURCE_DIR="service.libreelec.settings-$PKG_VERSION*"
+PKG_SITE="http://coreelec.org"
+PKG_URL="https://github.com/CoreELEC/service.coreelec.settings/archive/$PKG_VERSION.tar.gz"
+PKG_SOURCE_DIR="service.coreelec.settings-$PKG_VERSION*"
 PKG_DEPENDS_TARGET="toolchain Python2 connman pygobject dbus-python"
 PKG_SECTION=""
-PKG_SHORTDESC="LibreELEC-settings: Settings dialog for LibreELEC"
-PKG_LONGDESC="LibreELEC-settings: is a settings dialog for LibreELEC"
+PKG_SHORTDESC="CoreELEC-settings: Settings dialog for CoreELEC"
+PKG_LONGDESC="CoreELEC-settings: is a settings dialog for CoreELEC"
 
 PKG_MAKE_OPTS_TARGET="DISTRONAME=$DISTRONAME ROOT_PASSWORD=$ROOT_PASSWORD"
 
@@ -38,15 +38,15 @@ else
 fi
 
 post_makeinstall_target() {
-  mkdir -p $INSTALL/usr/lib/libreelec
-    cp $PKG_DIR/scripts/* $INSTALL/usr/lib/libreelec
+  mkdir -p $INSTALL/usr/lib/coreelec
+    cp $PKG_DIR/scripts/* $INSTALL/usr/lib/coreelec
 
 #  # bluetooth is optional
 #    if [ ! "$BLUETOOTH_SUPPORT" = yes ]; then
 #      rm -f resources/lib/modules/bluetooth.py
 #    fi
 
-  ADDON_INSTALL_DIR=$INSTALL/usr/share/kodi/addons/service.libreelec.settings
+  ADDON_INSTALL_DIR=$INSTALL/usr/share/kodi/addons/service.coreelec.settings
 
   $TOOLCHAIN/bin/python -Wi -t -B $TOOLCHAIN/lib/$PKG_PYTHON_VERSION/compileall.py $ADDON_INSTALL_DIR/resources/lib/ -f
   rm -rf $(find $ADDON_INSTALL_DIR/resources/lib/ -name "*.py")
