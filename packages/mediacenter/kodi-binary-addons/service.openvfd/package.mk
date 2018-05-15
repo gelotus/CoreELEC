@@ -16,25 +16,22 @@
 #  along with CoreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="fd628"
-PKG_VERSION="1.0"
-PKG_REV="100"
-PKG_ARCH="any"
+PKG_NAME="service.openvfd"
+PKG_VERSION="db5671b"
+PKG_SHA256="6cfc55840248e5d36808413082fb4b7c6a6c332cbdfa0cc273df0dc389d15f4e"
 PKG_LICENSE="GPL"
-PKG_SITE=""
-PKG_URL=""
-PKG_DEPENDS_TARGET="toolchain"
+PKG_SITE="https://github.com/arthur-liberman/service.openvfd"
+PKG_URL="https://github.com/arthur-liberman/service.openvfd/archive/$PKG_VERSION.tar.gz"
+PKG_DEPENDS_TARGET="toolchain kodi-platform"
 PKG_SECTION="service"
-PKG_SHORTDESC="Add-on removed"
-PKG_LONGDESC="Add-on removed"
+PKG_SHORTDESC="service.openvfd"
+PKG_LONGDESC="service.openvfd"
 PKG_TOOLCHAIN="manual"
 
-PKG_ADDON_BROKEN="FD628 Display is no longer maintained and has been superseded by VFD Display."
-
 PKG_IS_ADDON="yes"
-PKG_ADDON_NAME="FD628 Display"
-PKG_ADDON_TYPE="xbmc.broken"
+PKG_ADDON_TYPE="xbmc.service"
 
 addon() {
-  :
+  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID
+  cp -PR $PKG_BUILD/* $ADDON_BUILD/$PKG_ADDON_ID
 }
