@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="CoreELEC-settings"
-PKG_VERSION="7657cd0"
-PKG_SHA256="687a1b9b1aedb81ea6a5fa9bb2a2064f7835762b01d6135a51de1bbe14351bbc"
+PKG_VERSION="ac224ad"
+PKG_SHA256="23088d7f1f09b6db1fd583538bf19d127704708ee5564298713ff62f41742410"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="http://coreelec.org"
-PKG_URL="https://github.com/CoreELEC/service.coreelec.settings/archive/$PKG_VERSION.tar.gz"
+PKG_SITE="https://github.com/gelotus/service.coreelec.settings"
+PKG_URL="https://github.com/gelotus/service.coreelec.settings/archive/$PKG_VERSION.tar.gz"
 PKG_SOURCE_DIR="service.coreelec.settings-$PKG_VERSION*"
 PKG_DEPENDS_TARGET="toolchain Python2 connman pygobject dbus-python"
 PKG_SECTION=""
