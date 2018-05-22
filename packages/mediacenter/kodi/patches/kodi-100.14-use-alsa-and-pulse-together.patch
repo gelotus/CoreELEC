@@ -14,7 +14,7 @@ diff --git a/xbmc/windowing/X11/WinSystemX11GLContext.cpp b/xbmc/windowing/X11/W
 index 17b83a0..2e76053 100644
 --- a/xbmc/windowing/X11/WinSystemX11GLContext.cpp
 +++ b/xbmc/windowing/X11/WinSystemX11GLContext.cpp
-@@ -52,32 +52,8 @@ std::unique_ptr<CWinSystemBase> CWinSystemBase::CreateWinSystem()
+@@ -52,39 +52,8 @@ std::unique_ptr<CWinSystemBase> CWinSystemBase::CreateWinSystem()
  
  CWinSystemX11GLContext::CWinSystemX11GLContext()
  {
@@ -29,6 +29,10 @@ index 17b83a0..2e76053 100644
 -  {
 -    OPTIONALS::PulseAudioRegister();
 -  }
+-  else if (StringUtils::EqualsNoCase(envSink, "OSS"))
+-  {
+-    OPTIONALS::OSSRegister();
+-  }
 -  else if (StringUtils::EqualsNoCase(envSink, "SNDIO"))
 -  {
 -    OPTIONALS::SndioRegister();
@@ -39,7 +43,10 @@ index 17b83a0..2e76053 100644
 -    {
 -      if (!OPTIONALS::ALSARegister())
 -      {
--        OPTIONALS::SndioRegister();
+-        if (!OPTIONALS::SndioRegister())
+-        {
+-          OPTIONALS::OSSRegister();
+-        }
 -      }
 -    }
 -  }
@@ -73,7 +80,7 @@ diff --git a/xbmc/windowing/gbm/WinSystemGbm.cpp b/xbmc/windowing/gbm/WinSystemG
 index 45783bd..7b5e2ba 100644
 --- a/xbmc/windowing/gbm/WinSystemGbm.cpp
 +++ b/xbmc/windowing/gbm/WinSystemGbm.cpp
-@@ -43,31 +43,8 @@ CWinSystemGbm::CWinSystemGbm() :
+@@ -43,38 +43,8 @@ CWinSystemGbm::CWinSystemGbm() :
    m_GBM(new CGBMUtils),
    m_delayDispReset(false)
  {
@@ -88,6 +95,10 @@ index 45783bd..7b5e2ba 100644
 -  {
 -    OPTIONALS::PulseAudioRegister();
 -  }
+-  else if (StringUtils::EqualsNoCase(envSink, "OSS"))
+-  {
+-    OPTIONALS::OSSRegister();
+-  }
 -  else if (StringUtils::EqualsNoCase(envSink, "SNDIO"))
 -  {
 -    OPTIONALS::SndioRegister();
@@ -98,7 +109,10 @@ index 45783bd..7b5e2ba 100644
 -    {
 -      if (!OPTIONALS::ALSARegister())
 -      {
--        OPTIONALS::SndioRegister();
+-        if (!OPTIONALS::SndioRegister())
+-        {
+-          OPTIONALS::OSSRegister();
+-        }
 -      }
 -    }
 -  }
