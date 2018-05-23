@@ -93,9 +93,11 @@ pre_configure_target() {
     --enable-hwaccel=h263_vaapi \
     --enable-hwaccel=h264_vaapi \
     --enable-hwaccel=hevc_vaapi \
+    --enable-hwaccel=mjpeg_vaapi \
     --enable-hwaccel=mpeg2_vaapi \
     --enable-hwaccel=mpeg4_vaapi \
     --enable-hwaccel=vc1_vaapi \
+    --enable-hwaccel=vp8_vaapi \
     --enable-hwaccel=vp9_vaapi \
     --enable-hwaccel=wmv3_vaapi"
   fi
@@ -110,6 +112,8 @@ pre_configure_target() {
     --enable-encoder=x264 \
     --enable-libx265 \
     --enable-encoder=x265 \
+    --enable-libaom \
+    --enable-encoder=libaom_av1 \
     \
     `#Audio encoders` \
     --enable-encoder=ac3 \
