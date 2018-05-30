@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="imagemagick"
-PKG_VERSION="7.0.7-29"
-PKG_SHA256="be171d13e58bb19685b36080edf9d36b9b95633b0331fbf7e70b5997a3501d65"
+PKG_VERSION="7.0.7-32"
+PKG_SHA256="f1785adf8bbf378b47e789c74c2fd9ebdd5ec1c4de12e53306f8f6eb5b55d656"
 PKG_ARCH="any"
 PKG_LICENSE="http://www.imagemagick.org/script/license.php"
 PKG_SITE="http://www.imagemagick.org/"
@@ -26,7 +26,6 @@ PKG_URL="https://github.com/ImageMagick/ImageMagick/archive/$PKG_VERSION.tar.gz"
 PKG_SOURCE_DIR="ImageMagick-$PKG_VERSION"
 PKG_DEPENDS_TARGET="toolchain libX11"
 PKG_SECTION="graphics"
-PKG_SHORTDESC="ImageMagick"
 PKG_LONGDESC="Software suite to create, edit, compose, or convert bitmap images"
 
 PKG_CONFIGURE_OPTS_TARGET="--enable-static \
