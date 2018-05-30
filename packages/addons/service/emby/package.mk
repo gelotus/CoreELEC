@@ -17,9 +17,9 @@
 ################################################################################
 
 PKG_NAME="emby"
-PKG_VERSION="3.4.1.0"
-PKG_SHA256="055a2fdd01edd3912ed9e6e202b98d0009556996773b0afc5a3c56d8d1365922"
-PKG_REV="118"
+PKG_VERSION="3.4.1.6"
+PKG_SHA256="8eb129f538cefec612239932fd85ddc6bd5221cd97613e142f41f2126412ea04"
+PKG_REV="119"
 PKG_ARCH="any"
 PKG_LICENSE="OSS"
 PKG_SITE="http://emby.media"
