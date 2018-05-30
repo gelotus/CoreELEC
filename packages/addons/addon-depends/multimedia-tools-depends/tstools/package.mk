@@ -19,12 +19,12 @@
 ################################################################################
 
 PKG_NAME="tstools"
-PKG_VERSION="1.11"
-PKG_SHA256="4e207ad7298ec421c6710e3024147b486320d792cec2dbd34efb7e6d9e96230a"
+PKG_VERSION="db1f79f" 
+PKG_SHA256="f204229016c9deafcc75fe602c390339878312126134edbfcebf239e093dc4ff"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="https://sourceforge.net/projects/tstools.berlios"
-PKG_URL="$SOURCEFORGE_SRC/project/tstools.berlios/tstools-1_11.tgz"
+PKG_SITE="https://github.com/kynesim/tstools" 
+PKG_URL="https://github.com/kynesim/tstools/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_SECTION="tools"
 PKG_SHORTDESC="command line tools for working with MPEG data"
@@ -36,5 +36,5 @@ make_target() {
 }
 
 makeinstall_target() {
-  : # nop
+  :
 }
