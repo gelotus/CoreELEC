@@ -17,16 +17,15 @@
 ################################################################################
 
 PKG_NAME="libmediainfo"
-PKG_VERSION="18.03.1"
-PKG_SHA256="0243365f53299997bc04dfa065de9b3f1688b6eeb450a7f57e740504cd626fa0" 
+PKG_VERSION="18.05"
+PKG_SHA256="76759613ca71d5659818e6ed121be9f31c552931b04939b0db4c58bc57cd5221" 
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://mediaarea.net/en/MediaInfo/Download/Source"
-PKG_URL="http://mediaarea.net/download/source/${PKG_NAME}/${PKG_VERSION}/${PKG_NAME}_${PKG_VERSION}.tar.xz"
+PKG_URL="http://mediaarea.net/download/source/libmediainfo/${PKG_VERSION}/libmediainfo_${PKG_VERSION}.tar.xz"
 PKG_SOURCE_DIR="MediaInfoLib"
 PKG_DEPENDS_TARGET="toolchain libzen zlib"
 PKG_SECTION="multimedia"
-PKG_SHORTDESC="MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files"
 PKG_LONGDESC="MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files"
 PKG_TOOLCHAIN="manual"
 
