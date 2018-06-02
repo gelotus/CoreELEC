@@ -81,9 +81,9 @@ else
 fi
 
 if [ "$TARGET_ARCH" = "x86_64" ]; then
-  FFMPEG_X86ASM="--enable-x86asm"
+  PKG_FFMPEG_X86ASM="--enable-x86asm"
 else
-  FFMPEG_X86ASM="--disable-x86asm"
+  PKG_FFMPEG_X86ASM="--disable-x86asm"
 fi
 
 pre_configure_target() {
@@ -205,8 +205,8 @@ configure_target() {
               --enable-zlib \
               --enable-asm \
               --disable-altivec \
-              $FFMPEG_FPU \
-              $FFMPEG_X86ASM \
+              $PKG_FFMPEG_FPU \
+              $PKG_FFMPEG_X86ASM \
               --disable-symver
 }
 
