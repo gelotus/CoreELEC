@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="CoreELEC-settings"
-PKG_VERSION="ac224ad"
-PKG_SHA256="23088d7f1f09b6db1fd583538bf19d127704708ee5564298713ff62f41742410"
+PKG_VERSION="f30d8d0"
+PKG_SHA256="db214e8267a1d440d046a90eb40756a3f89fd9377828b9518f8e58f5949a6f87"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/gelotus/service.coreelec.settings"
