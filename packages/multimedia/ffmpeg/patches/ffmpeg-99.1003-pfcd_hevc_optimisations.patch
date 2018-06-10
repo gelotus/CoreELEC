@@ -19689,7 +19689,7 @@ index 0000000000..744e7cf248
 +}
 diff --git a/libavcodec/rpi_hevc_ps.h b/libavcodec/rpi_hevc_ps.h
 new file mode 100644
-index 0000000000..00c1f14614
+index 0000000000..1e7120a43d
 --- /dev/null
 +++ b/libavcodec/rpi_hevc_ps.h
 @@ -0,0 +1,444 @@
@@ -25930,10 +25930,10 @@ index 0000000000..1128a2c054
 +};
 diff --git a/libavcodec/rpi_hevcdec.c b/libavcodec/rpi_hevcdec.c
 new file mode 100644
-index 0000000000..bddf0c3417
+index 0000000000..08686ff260
 --- /dev/null
 +++ b/libavcodec/rpi_hevcdec.c
-@@ -0,0 +1,5782 @@
+@@ -0,0 +1,5787 @@
 +/*
 + * HEVC video Decoder
 + *
@@ -31718,10 +31718,10 @@ index 0000000000..bddf0c3417
 +
 diff --git a/libavcodec/rpi_hevcdec.h b/libavcodec/rpi_hevcdec.h
 new file mode 100644
-index 0000000000..d242727b2a
+index 0000000000..df2bac1df4
 --- /dev/null
 +++ b/libavcodec/rpi_hevcdec.h
-@@ -0,0 +1,1000 @@
+@@ -0,0 +1,1002 @@
 +/*
 + * HEVC video decoder
 + *
