@@ -97,7 +97,7 @@ diff -Naurp kodi-17.0-beta5-e92818a/xbmc/utils/SystemInfo.cpp kodi-17.0-beta5-e9
    default:
      return "";
    }
-@@ -554,26 +554,18 @@
+@@ -553,26 +553,18 @@
    static std::string kernelVersionFull;
    if (!kernelVersionFull.empty())
      return kernelVersionFull;
