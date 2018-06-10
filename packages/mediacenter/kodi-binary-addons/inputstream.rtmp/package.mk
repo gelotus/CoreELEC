@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="inputstream.rtmp"
-PKG_VERSION="8920456"
-PKG_SHA256="57d7f1084aac6f31e0cfdb2ff148a0ad290e046d2f6dc0d6b762f58132cbeb85"
+PKG_VERSION="b8e3f39"
+PKG_SHA256="eb6cc5f164c3bc76582362ea0683cfdc368ae31591786e11b4a75e0b30c8b0b8"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/notspiff/inputstream.rtmp"
 PKG_URL="https://github.com/notspiff/inputstream.rtmp/archive/$PKG_VERSION.tar.gz"
