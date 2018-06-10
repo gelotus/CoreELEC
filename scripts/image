@@ -344,6 +344,8 @@ if [ "$1" = "release" -o "$1" = "mkimage" -o "$1" = "amlpkg" -o "$1" = "noobs" ]
       TARGET_KERNEL_ARCH="$TARGET_KERNEL_ARCH" \
       RELEASE_DIR=$RELEASE_DIR \
       UUID_STORAGE="$(uuidgen)" \
+      DISTRO_BOOTLABEL="$DISTRO_BOOTLABEL" \
+      DISTRO_DISKLABEL="$DISTRO_DISKLABEL" \
       UBOOT_SYSTEM="$UBOOT_SYSTEM" \
       UBOOT_VERSION="$UBOOT_VERSION" \
       EXTRA_CMDLINE="$EXTRA_CMDLINE" \
