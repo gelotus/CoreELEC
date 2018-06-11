@@ -67,4 +67,5 @@ PKG_CONFIGURE_OPTS_TARGET="--enable-static \
                            --disable-readline \
                            --enable-threadsafe \
                            --enable-dynamic-extensions \
+                           --enable-fts5=no \
                            --with-gnu-ld"
