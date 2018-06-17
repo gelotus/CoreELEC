@@ -385,7 +385,7 @@
 
     if [ -f /sysroot/etc/os-release ]; then
       . /sysroot/etc/os-release
-      echo "${COREELEC_ARCH:-${LIBREELEC_ARCH}}"
+      echo "${LIBREELEC_ARCH:-${OPENELEC_ARCH}}"
     fi
 
     umount /sysroot
@@ -479,10 +479,10 @@
     export BOOT_ROOT="/flash"
     export SYSTEM_ROOT="/sysroot"
 
-    mount_part "/flash$IMAGE_SYSTEM" "/sysroot" "ro,loop"
+    mount_part "/flash/$IMAGE_SYSTEM" "/sysroot" "ro,loop"
 
     if [ -f $SYSTEM_ROOT/usr/share/bootloader/update.sh ]; then
-      StartProgress spinner "Updating Boot Files... "
+      StartProgress spinner "Updating Bootloader... "
         result="$(sh $SYSTEM_ROOT/usr/share/bootloader/update.sh 2>&1)"
         sync
         StopProgress "done"
@@ -981,7 +981,7 @@
     # Verify that the new upgrade is compatible with the current system - this should avoid creating
     # non-booting systems after (for example) an RPi tar is incorrectly applied to an RPi2 system.
     if [ ! -f "$UPDATE_ROOT/.nocompat" ]; then
-      if ! check_is_compatible "$UPDATE_FILENAME" "/flash$IMAGE_SYSTEM" "$UPDATE_DIR/$UPDATE_SYSTEM"; then
+      if ! check_is_compatible "$UPDATE_FILENAME" "/flash/$IMAGE_SYSTEM" "$UPDATE_DIR/$UPDATE_SYSTEM"; then
         do_cleanup
         StartProgress countdown "Normal startup in 60s... " 60 "NOW"
         return 0
@@ -993,13 +993,13 @@
     FLASH_FREE=$(( $FLASH_FREE * 1024 ))
 
     # Disregard kernel size if it's a a block device, which is the case on Amlogic/WeTek devices
-    if [ ! -b /$IMAGE_KERNEL ]; then
+    if [ ! -b "/$IMAGE_KERNEL" ]; then
       OLD_KERNEL=$(stat -t "/flash/$IMAGE_KERNEL" | awk '{print $2}')
     else
       OLD_KERNEL="0"
     fi
 
-    OLD_SYSTEM=$(stat -t "/flash$IMAGE_SYSTEM" | awk '{print $2}')
+    OLD_SYSTEM=$(stat -t "/flash/$IMAGE_SYSTEM" | awk '{print $2}')
     NEW_KERNEL=$(stat -t "$UPDATE_DIR/$UPDATE_KERNEL" | awk '{print $2}')
     NEW_SYSTEM=$(stat -t "$UPDATE_DIR/$UPDATE_SYSTEM" | awk '{print $2}')
 
@@ -1027,12 +1027,12 @@
     fi
 
     # all ok, update
-    if [ -b /$IMAGE_KERNEL ]; then
+    if [ -b "/$IMAGE_KERNEL" ]; then
       update_partition "Kernel" "$UPDATE_KERNEL" "/$IMAGE_KERNEL"
     else
-      update_file "Kernel" "$UPDATE_KERNEL" "/flash$IMAGE_KERNEL"
+      update_file "Kernel" "$UPDATE_KERNEL" "/flash/$IMAGE_KERNEL"
     fi
-    update_file "System" "$UPDATE_SYSTEM" "/flash$IMAGE_SYSTEM"
+    update_file "System" "$UPDATE_SYSTEM" "/flash/$IMAGE_SYSTEM"
     update_bootloader
     do_cleanup
     do_reboot
@@ -1042,10 +1042,10 @@
     progress "Preparing system"
 
     if [ "$SYSTEM_TORAM" = "no" -o "$INSTALLED_MEMORY" -lt "$SYSTEM_TORAM_LIMIT" ]; then
-      mount_part "/flash$IMAGE_SYSTEM" "/sysroot" "ro,loop"
+      mount_part "/flash/$IMAGE_SYSTEM" "/sysroot" "ro,loop"
     else
-      cp /flash$IMAGE_SYSTEM /dev$IMAGE_SYSTEM
-      mount_part "/dev$IMAGE_SYSTEM" "/sysroot" "ro,loop"
+      cp /flash/$IMAGE_SYSTEM /dev/$IMAGE_SYSTEM
+      mount_part "/dev/$IMAGE_SYSTEM" "/sysroot" "ro,loop"
     fi
 
     mount --move /flash /sysroot/flash
