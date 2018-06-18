@@ -47,11 +47,8 @@ pre_make_target() {
 }
 
 make_target() {
-  if listcontains "$ADDITIONAL_DRIVERS" "wetekdvb"; then
-    make SRCDIR=$(kernel_path) WETEKSRCDIR=$(get_build_dir wetekdvb) untar
-  else
-    make SRCDIR=$(kernel_path) untar
-  fi
+  kernel_make SRCDIR=$(kernel_path) untar
+
   # copy config file
   if [ "$PROJECT" = Generic ]; then
     if [ -f $PKG_DIR/config/generic.config ]; then
@@ -75,7 +72,7 @@ make_target() {
   fi
 
   # add menuconfig to edit .config
-  make VER=$KERNEL_VER SRCDIR=$(kernel_path)
+  kernel_make VER=$KERNEL_VER SRCDIR=$(kernel_path)
 }
 
 makeinstall_target() {
