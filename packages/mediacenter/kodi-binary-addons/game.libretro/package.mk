@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="game.libretro"
-PKG_VERSION="38960f8"
-PKG_SHA256="ace93d3bdd5d50345d5e7424e721516e3bdb49e48d6a821b71477fa8bbbf32a9"
+PKG_VERSION="82039bb"
+PKG_SHA256="1c0beae6b174fe93100fffc255784425a3ecbcb4ef6d20ed6e1fb31b8a5d1071"
 PKG_REV="106"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
