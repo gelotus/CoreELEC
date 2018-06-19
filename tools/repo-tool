@@ -129,10 +129,10 @@ build() {
       . $package
       if [ "$PKG_IS_ADDON" = "yes" ] ; then
         ADDON=$PKG_NAME
-        if listcontains "peripheral.steamcontroller visualization.wavforhue
-                         peripheral.xarcade repository.kodinerds moonlight game.libretro.mame2014
+        if listcontains "peripheral.steamcontroller visualization.wavforhue lcdd hyperion hyperion.ng syncthing
+                         peripheral.xarcade repository.kodinerds moonlight game.libretro.mame2014 emby sapphire
                          game.libretro.mame2010 game.libretro.mame2003 game.libretro.mame2000" "$ADDON"; then
-          echo "*** ERROR: PACKAGE $ADDON IS BROKEN, SKIPING ***"
+          echo "*** ERROR: PACKAGE $ADDON IS BROKEN, SKIPPING ***"
           break
         else
           PROJECT=$PROJECT DEVICE=$DEVICE ARCH=$ARCH ./scripts/create_addon $ADDON
